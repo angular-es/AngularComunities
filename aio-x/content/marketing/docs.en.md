@@ -44,9 +44,9 @@ Most Angular code can be written with just the latest JavaScript, using [types](
 
 ## Feedback
 
-<h4>You can sit with us!</h4>
+<h3>You can sit with us!</h3>
 
-We want to hear from you. [Report problems or submit suggestions for future docs.](https://github.com/angular/angular/issues/new/choose "Angular GitHub repository new issue form")
+We want to hear from you. [Report problems or submit suggestions for future docs](https://github.com/angular/angular/issues/new/choose "Angular GitHub repository new issue form").
 
 Contribute to Angular docs by creating
 [pull requests](https://github.com/angular/angular/pulls "Angular Github pull requests")

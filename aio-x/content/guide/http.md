@@ -273,11 +273,11 @@ In the following example, the `searchHeroes()` method uses a JSONP request to qu
 searchHeroes(term: string): Observable {
   term = term.trim();
 
-  let heroesURL = `${this.heroesURL}?${term}`;
+  const heroesURL = `${this.heroesURL}?${term}`;
   return this.http.jsonp(heroesUrl, 'callback').pipe(
       catchError(this.handleError('searchHeroes', [])) // then handle the error
     );
-};
+}
 ```
 
 This request passes the `heroesURL` as the first parameter and the callback function name as the second parameter.
@@ -957,11 +957,11 @@ as happens in the `search()` method.
 Rather than forward every `searchText` value directly to the injected `PackageSearchService`,
 the code in `ngOnInit()` pipes search values through three operators, so that a search value reaches the service only if it's a new value and the user has stopped typing.
 
-* `debounceTime(500)`&emdash;Wait for the user to stop typing (1/2 second in this case).
+* `debounceTime(500)`⁠—Wait for the user to stop typing (1/2 second in this case).
 
-* `distinctUntilChanged()`&emdash;Wait until the search text changes.
+* `distinctUntilChanged()`⁠—Wait until the search text changes.
 
-* `switchMap()`&emdash;Send the search request to the service.
+* `switchMap()`⁠—Send the search request to the service.
 
 The code sets `packages$` to this re-composed `Observable` of search results.
 The template subscribes to `packages$` with the [AsyncPipe](api/common/AsyncPipe)

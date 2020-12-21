@@ -6,7 +6,7 @@ and place that component in the application shell.
 
 <div class="alert is-helpful">
 
-  Para ver la aplicación de ejemplo que describe esta página, consulte el<live-example></live-example>.
+  For the sample app that this page describes, see the <live-example></live-example>.
 
 </div>
 
@@ -206,6 +206,7 @@ Note that `AppModule`  declares both application components, `AppComponent` and 
 
 
 ## Final code review
+
 Here are the code files discussed on this page.
 
 <code-tabs>

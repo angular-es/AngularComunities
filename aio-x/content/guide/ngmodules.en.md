@@ -19,7 +19,7 @@ Modules are a great way to organize an application and extend it with capabiliti
 Angular libraries are NgModules, such as `FormsModule`, `HttpClientModule`, and `RouterModule`.
 Many third-party libraries are available as NgModules such as
 <a href="https://material.angular.io/">Material Design</a>,
-<a href="http://ionicframework.com/">Ionic</a>, and
+<a href="https://ionicframework.com/">Ionic</a>, and
 <a href="https://github.com/angular/angularfire2">AngularFire2</a>.
 
 NgModules consolidate components, directives, and pipes into
@@ -36,7 +36,7 @@ NgModule metadata does the following:
 * Declares which components, directives, and pipes belong to the module.
 * Makes some of those components, directives, and pipes public so that other module's component templates can use them.
 * Imports other modules with the components, directives, and pipes that components in the current module need.
-* Provides services that the other application components can use.
+* Provides services that other application components can use.
 
 Every Angular app has at least one module, the root module.
 You [bootstrap](guide/bootstrapping) that module to launch the application.

@@ -53,13 +53,26 @@ This field contains an array of asset groups, each of which defines a set of ass
 
 ```json
 {
-  "assetGroups": [{
-    ...
-  }, {
-    ...
-  }]
+  "assetGroups": [
+    {
+      ...
+    },
+    {
+      ...
+    }
+  ]
 }
 ```
+
+<div class="alert is-helpful">
+
+When the ServiceWorker handles a request, it checks asset groups in the order in which they appear in `ngsw-config.json`.
+The first asset group that matches the requested resource handles the request.
+
+It is recommended that you put the more specific asset groups higher in the list.
+For example, an asset group that matches `/foo.js` should appear before one that matches `*.js`.
+
+</div>
 
 Each asset group specifies both a group of resources and a policy that governs them. This policy determines when the resources are fetched and what happens when changes are detected.
 
@@ -122,6 +135,31 @@ These options are used to modify the matching behavior of requests. They are pas
 ## `dataGroups`
 
 Unlike asset resources, data requests are not versioned along with the app. They're cached according to manually-configured policies that are more useful for situations such as API requests and other data dependencies.
+
+This field contains an array of data groups, each of which defines a set of data resources and the policy by which they are cached.
+
+```json
+{
+  "dataGroups": [
+    {
+      ...
+    },
+    {
+      ...
+    }
+  ]
+}
+```
+
+<div class="alert is-helpful">
+
+When the ServiceWorker handles a request, it checks data groups in the order in which they appear in `ngsw-config.json`.
+The first data group that matches the requested resource handles the request.
+
+It is recommended that you put the more specific data groups higher in the list.
+For example, a data group that matches `/api/foo.json` should appear before one that matches `/api/*.json`.
+
+</div>
 
 Data groups follow this Typescript interface:
 
@@ -229,6 +267,12 @@ By default, these criteria are:
 1. The URL must not contain a file extension (i.e. a `.`) in the last path segment.
 2. The URL must not contain `__`.
 
+<div class="alert is-helpful">
+
+To configure whether navigation requests are sent through to the network or not, see the [navigationRequestStrategy](#navigation-request-strategy) section.
+
+</div>
+
 ### Matching navigation request URLs
 
 While these default criteria are fine in most cases, it is sometimes desirable to configure different rules. For example, you may want to ignore specific routes (that are not part of the Angular app) and pass them through to the server.
@@ -247,3 +291,32 @@ If the field is omitted, it defaults to:
   '!/**/*__*/**',  // Exclude URLs containing `__` in any other segment.
 ]
 ```
+
+{@a navigation-request-strategy}
+
+## `navigationRequestStrategy`
+
+This optional property enables you to configure how the service worker handles navigation requests:
+
+```json
+{
+  "navigationRequestStrategy": "freshness"
+}
+```
+
+Possible values:
+
+- `'performance'`: The default setting. Serves the specified [index file](#index-file), which is typically cached.
+- `'freshness'`: Passes the requests through to the network and falls back to the `performance` behavior when offline.
+  This value is useful when the server redirects the navigation requests elsewhere using an HTTP redirect (3xx status code).
+  Reasons for using this value include:
+    - Redirecting to an authentication website when authentication is not handled by the application.
+    - Redirecting specific URLs to avoid breaking existing links/bookmarks after a website redesign.
+    - Redirecting to a different website, such as a server-status page, while a page is temporarily down.
+
+<div class="alert is-important">
+
+The `freshness` strategy usually results in more requests sent to the server, which can increase response latency.
+It is recommended that you use the default performance strategy whenever possible.
+
+</div>

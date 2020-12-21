@@ -18,46 +18,27 @@ that are important to Angular developers, including details about the following 
 ## Configuration files
 
 A given Angular workspace contains several TypeScript configuration files.
-At the root level, there are two main TypeScript configuration files: a `tsconfig.json` file and a `tsconfig.base.json` file.
+At the root `tsconfig.json` file specifies the base TypeScript and Angular compiler options that all projects in the workspace inherit.
 
-The `tsconfig.json` file is a ["Solution Style"](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-9.html#support-for-solution-style-tsconfigjson-files) TypeScript configuration file.
-Code editors and TypeScript’s language server use this file to improve development experience.
-Compilers do not use this file.
+<div class="alert is-helpful">
 
-The `tsconfig.json` file contains a list of paths to the other TypeScript configuration files used in the workspace.
+See the [Angular compiler options](guide/angular-compiler-options) guide for information about what Angular specific options are available.
 
-<code-example lang="json" header="tsconfig.json" linenums="false">
-{
- "files": [],
- "references": [
-   {
-     "path": "./tsconfig.app.json"
-   },
-   {
-     "path": "./tsconfig.spec.json"
-   },
-   {
-     "path": "./projects/my-lib/tsconfig.lib.json"
-   }
- ]
-}
-</code-example>
-
-The `tsconfig.base.json` file specifies the base TypeScript and Angular compiler options that all projects in the workspace inherit.
+</div>
 
 The TypeScript and Angular have a wide range of options which can be used to configure type-checking features and generated output.
 For more information, see the [Configuration inheritance with extends](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#configuration-inheritance-with-extends) section of the TypeScript documentation.
 
 <div class="alert is-helpful">
 
-For more information TypeScript configuration files, see the official [TypeScript wiki](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+For more information TypeScript configuration files, see the official [TypeScript wiki](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
 For details about configuration inheritance, see the [Configuration inheritance with extends](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#configuration-inheritance-with-extends) section.
 
 </div>
 
-The initial `tsconfig.base.json` for an Angular workspace typically looks like the following example.
+The initial `tsconfig.json` for an Angular workspace typically looks like the following example.
 
-<code-example lang="json" header="tsconfig.base.json" linenums="false">
+<code-example lang="json" header="tsconfig.json" linenums="false">
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -162,7 +143,7 @@ Fortunately, either their authors or community contributors have created separat
 published them in well-known locations.
 
 You can install these typings via `npm` using the
-[`@types/*` scoped package](http://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html)
+[`@types/*` scoped package](https://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html)
 and Typescript, starting at 2.0, automatically recognizes them.
 
 For instance, to install typings for `jasmine` you run `npm install @types/jasmine --save-dev`.

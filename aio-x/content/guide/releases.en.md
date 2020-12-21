@@ -94,18 +94,25 @@ All of our major releases are supported for 18 months.
 
 * 6 months of *active support*, during which regularly-scheduled updates and patches are released.
 
-* 12 months of *long-term support (LTS)*, during which only critical fixes and security patches are released.
+* 12 months of *long-term support (LTS)*, during which only [critical fixes and security patches](#lts-fixes) are released.
 
 The following table provides the status for Angular versions under support.
 
 
 Version | Status | Released     | Active Ends  | LTS Ends
 ------- | ------ | ------------ | ------------ | ------------
-^10.0.0 | Active | Jun 24, 2020 | Dec 24, 2020 | Dec 24, 2021
-^9.0.0  | Active | Feb 06, 2020 | Aug 06, 2020 | Aug 06, 2021
-^8.0.0  | LTS    | May 28, 2019 | Nov 28, 2019 | Nov 28, 2020
+^11.0.0 | Active | Nov 11, 2020 | May 11, 2021 | May 11, 2022
+^10.0.0 | LTS    | Jun 24, 2020 | Dec 24, 2020 | Dec 24, 2021
+^9.0.0  | LTS    | Feb 06, 2020 | Aug 06, 2020 | Aug 06, 2021
 
-Angular versions ^4.0.0, ^5.0.0, ^6.0.0 and ^7.0.0 are no longer under support.
+Angular versions v4, v5, v6, v7, and v8 are no longer under support.
+
+### LTS fixes
+
+As a general rule, a fix is considered for an LTS version if it resolves one of:
+
+* a newly identified security vulnerability,
+* a regression, since the start of LTS, caused by a 3rd party change, such as a new browser version.
 
 {@a deprecation}
 ## Deprecation practices

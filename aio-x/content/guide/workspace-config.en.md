@@ -81,7 +81,7 @@ Individual schematics for the default Angular CLI `ng generate` sub-commands are
 Specify the schematic name for a subcommand in the format `schematic-package:schematic-name`;
 for example, the schematic for generating a component is `@angular:component`.
 
-The JSON schemas for the default schematics used by the CLI to generate projects and parts of projects are collected in the package [`@schematics/angular`](https://github.com/angular/angular-cli/blob/7.0.x/packages/schematics/angular/application/schema.json).
+The JSON schemas for the default schematics used by the CLI to generate projects and parts of projects are collected in the package [`@schematics/angular`](https://github.com/angular/angular-cli/blob/master/packages/schematics/angular/application/schema.json).
 The schema describes the options available to the CLI for each of the `ng generate` sub-commands, as shown in the `--help` output.
 
 The fields given in the schema correspond to the allowed argument values and defaults for the CLI sub-command options.
@@ -149,7 +149,7 @@ See [Build target](#build-target) below for more information.
 
 * The `architect/lint` section configures defaults for options of the `ng lint` command, which performs code analysis on project source files. The default linting tool for Angular is [TSLint](https://palantir.github.io/tslint/).
 
-* The `architect/extract-i18n` section configures defaults for options of the `ng-xi18n` tool used by the `ng xi18n` command, which extracts marked message strings from source code and outputs translation files.
+* The `architect/extract-i18n` section configures defaults for options of the `ng extract-i18n` command, which extracts marked message strings from source code and outputs translation files.
 
 * The `architect/server` section configures defaults for creating a Universal app with server-side rendering, using the `ng run <project>:server` command.
 
@@ -196,7 +196,7 @@ Some additional options can only be set through the configuration file, either b
 | OPTIONS PROPERTIES | DESCRIPTION |
 | :------------------------- | :---------------------------- |
 | `assets`                   | An object containing paths to static assets to add to the global context of the project. The default paths point to the project's icon file and its `assets` folder. See more in [Assets configuration](#asset-config) below. |
-| `styles`                   | An array of style files to add to the global context of the project. Angular CLI supports CSS imports and all major CSS preprocessors: [sass/scss](http://sass-lang.com/), [less](http://lesscss.org/), and [stylus](http://stylus-lang.com/). See more in [Styles and scripts configuration](#style-script-config) below. |
+| `styles`                   | An array of style files to add to the global context of the project. Angular CLI supports CSS imports and all major CSS preprocessors: [sass/scss](https://sass-lang.com/), [less](http://lesscss.org/), and [stylus](https://stylus-lang.com/). See more in [Styles and scripts configuration](#style-script-config) below. |
 | `stylePreprocessorOptions` | An object containing option-value pairs to pass to style preprocessors. See more in [Styles and scripts configuration](#style-script-config) below. |
 | `scripts`                  | An object containing JavaScript script files to add to the global context of the project. The scripts are loaded exactly as if you had added them in a `<script>` tag inside `index.html`. See more in [Styles and scripts configuration](#style-script-config) below. |
 | `budgets`                  | Default size-budget type and threshholds for all or parts of your app. You can configure the builder to report a warning or an error when the output reaches or exceeds a threshold size. See [Configure size budgets](guide/build#configure-size-budgets). (Not available in `test` section.) |
@@ -241,8 +241,16 @@ For example, the default asset paths can be represented in more detail using the
 <code-example language="json">
 
 "assets": [
-  { "glob": "**/*", "input": "src/assets/", "output": "/assets/" },
-  { "glob": "favicon.ico", "input": "src/", "output": "/" }
+  {
+    "glob": "**/*",
+    "input": "src/assets/",
+    "output": "/assets/"
+  },
+  {
+    "glob": "favicon.ico",
+    "input": "src/",
+    "output": "/"
+  }
 ]
 
 </code-example>
@@ -253,7 +261,11 @@ For example, the following configuration copies assets from a node package:
 <code-example language="json">
 
 "assets": [
- { "glob": "**/*", "input": "./node_modules/some-package/images", "output": "/some-package/" },
+ {
+   "glob": "**/*",
+   "input": "./node_modules/some-package/images",
+   "output": "/some-package/"
+ }
 ]
 
 </code-example>
@@ -265,7 +277,12 @@ The following example uses the `ignore` field to exclude certain files in the as
 <code-example language="json">
 
 "assets": [
- { "glob": "**/*", "input": "src/assets/", "ignore": ["**/*.svg"], "output": "/assets/" },
+ { 
+   "glob": "**/*",
+   "input": "src/assets/",
+   "ignore": ["**/*.svg"],
+   "output": "/assets/" 
+ }
 ]
 
 </code-example>
@@ -284,10 +301,18 @@ For example, the following object values create and name a bundle that contains 
 <code-example language="json">
 
    "styles": [
-     { "input": "src/external-module/styles.scss", "inject": false, "bundleName": "external-module" }
+     {
+       "input": "src/external-module/styles.scss",
+       "inject": false,
+       "bundleName": "external-module"
+     }
    ],
    "scripts": [
-     { "input": "src/external-module/main.js", "inject": false, "bundleName": "external-module" }
+     { 
+       "input": "src/external-module/main.js",
+       "inject": false,
+       "bundleName": "external-module"
+     }
    ]
 
 </code-example>
@@ -336,30 +361,170 @@ Files in that folder, such as `src/style-paths/_variables.scss`, can be imported
 Note that you will also need to add any styles or scripts to the `test` builder if you need them for unit tests.
 See also [Using runtime-global libraries inside your app](guide/using-libraries#using-runtime-global-libraries-inside-your-app).
 
+### Optimization configuration
 
-{@a optimize-and-srcmap}
+The `optimization` browser builder option can be either a Boolean or an Object for more fine-tune configuration. This option enables various optimizations of the build output, including:
 
-### Optimization and source map configuration
+- Minification of scripts and styles
+- Tree-shaking
+- Dead-code elimination
+- Inlining of critical CSS
+- Fonts inlining
 
-The `optimization` and `sourceMap` command options are simple Boolean flags.
-You can supply an object as a configuration value for either of these to provide more detailed instruction.
+There are several options that can be used to fine-tune the optimization of an application.
 
-* The flag `--optimization="true"` applies to both scripts and styles. You can supply a value such as the following to apply optimization to one or the other:
+<table class="is-full-width is-fixed-layout">
+<thead>
+<tr>
+<th>Option</th>
+<th width="40%">Description</th>
+<th>Value Type</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scripts</code></td>
+<td>Enables optimization of the scripts output.</td>
+<td><code class="no-auto-link">boolean</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>styles</code></td>
+<td>Enables optimization of the scripts output.</td>
+<td><code>boolean|<a href="#styles-optimization-options">Styles optimization options</a></code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>fonts</code></td>
+<td>Enables optimization for fonts.<br><strong>Note:</strong> This requires internet access.</td>
+<td><code class="no-auto-link">boolean|<a href="#fonts-optimization-options">Fonts optimization options</a></code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+
+#### Styles optimization options
+<table class="is-full-width is-fixed-layout">
+<thead>
+<tr>
+<th>Option</th>
+<th width="40%">Description</th>
+<th>Value Type</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>minify</code></td>
+<td>Minify CSS definitions by removing extraneous whitespace and comments, merging identifiers and minimizing values.</td>
+<td><code class="no-auto-link">boolean</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>inlineCritical</code></td>
+<td>Extract and inline critical CSS definitions to improve <a href="https://web.dev/first-contentful-paint/">First Contentful Paint.</td>
+<td><code class="no-auto-link">boolean</code></td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+
+#### Fonts optimization options
+<table class="is-full-width is-fixed-layout">
+<thead>
+<tr>
+<th>Option</th>
+<th width="40%">Description</th>
+<th>Value Type</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inline</code></td>
+<td>Reduce <a href="https://web.dev/render-blocking-resources/">render blocking requests</a> by inlining external Google fonts and icons CSS definitions in the application's HTML index file.<br><strong>Note:</strong>This requires internet access.</td>
+<td><code class="no-auto-link">boolean</code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+
+
+You can supply a value such as the following to apply optimization to one or the other:
 
 <code-example language="json">
 
-   "optimization": { "scripts": true, "styles": false }
+  "optimization": { 
+    "scripts": true,
+    "styles": {
+      "minify": true,
+      "inlineCritical": true
+    },
+    "fonts": true
+  }
 
 </code-example>
 
-* The flag `--sourceMap="true"` outputs source maps for both scripts and styles.
-You can configure the option to apply to one or the other.
-You can also choose to output hidden source maps, or resolve vendor package source maps.
-For example:
+<div class="alert is-helpful">
+
+   For [Universal](guide/glossary#universal), you can reduce the code rendered in the HTML page by
+   setting styles optimization to `true`.
+
+</div>
+
+### Source map configuration
+
+The `sourceMap` browser builder option can be either a Boolean or an Object for more fine-tune configuration to control the source maps of an application.
+
+<table class="is-full-width is-fixed-layout">
+<thead>
+<tr>
+<th>Option</th>
+<th width="40%">Description</th>
+<th>Value Type</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scripts</code></td>
+<td>Output source maps for all scripts.</td>
+<td><code class="no-auto-link">boolean</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>styles</code></td>
+<td>Output source maps for all styles.</td>
+<td><code class="no-auto-link">boolean</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>vendor</code></td>
+<td>Resolve vendor packages source maps.</td>
+<td><code class="no-auto-link">boolean</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>hidden</code></td>
+<td>Output source maps used for error reporting tools.</td>
+<td><code class="no-auto-link">boolean</code></td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+
+
+The example below shows how to toggle one or more values to configure the source map outputs:
 
 <code-example language="json">
 
-   "sourceMap": { "scripts": true, "styles": false, "hidden": true, "vendor": true }
+  "sourceMap": {
+    "scripts": true,
+    "styles": false,
+    "hidden": true,
+    "vendor": true
+  }
 
 </code-example>
 
@@ -368,8 +533,5 @@ For example:
    When using hidden source maps, source maps will not be referenced in the bundle.
    These are useful if you only want source maps to map error stack traces in error reporting tools,
    but don't want to expose your source maps in the browser developer tools.
-
-   For [Universal](guide/glossary#universal), you can reduce the code rendered in the HTML page by
-   setting styles optimization to `true` and styles source maps to `false`.
 
 </div>
