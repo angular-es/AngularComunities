@@ -6,16 +6,16 @@ Fast guide
 
 
 Changelog
-[Latest improvements] (changelog).
+[Latest improvements](changelog).
 
 This repository is for translating the official site [angular.io](https://angular.io) of **Angular**
 ## Change in the app
 
-remenber to change all angularx to angular_yourLang => example angularbr
-
+remenber to change all angularx, to angular_yourLang => example angularbr
+and aiox and aio-x to aioyourlang and aio-yourlang => example aiobr and aio-br
 
 ## If you want to use firebase to CI in github actions
-use the main.yml file 
+use the main.yml file
 
 ## Credits
 ### Contributor
@@ -35,7 +35,7 @@ Collaborators who have contributed to this project!
 ## Contributions are welcome!
 
 This translation project requires your cooperation.
-Discussions on translation projects are ongoing on the `#translation` channel at [ng-es](https://discord.gg/tS4XVkS).
+Discussions on translation projects are ongoing.
 
 - Proposed fixes/improvements for translated documents.
 -Translation of non-translated documents

@@ -697,11 +697,6 @@
           "tooltip": "Support for updating your application from version 9 to 10.",
           "children": [
             {
-              "url": "guide/updating-to-version-10",
-              "title": "Overview",
-              "tooltip": "Everything you need to know for updating your application from version 9 to 10."
-            },
-            {
               "url": "guide/ivy-compatibility",
               "title": "Ivy Compatibility Guide",
               "tooltip": "Details to help you make sure your application is compatible with Ivy."

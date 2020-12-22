@@ -1,12 +1,12 @@
 #!/bin/bash -eux
-#change the x with the lang of your project
+#change the aio-x with the lang of your project
 # copy origin to temporary workspace
 cd origin
 git clean -xdn
 cd ..
 rsync -ar --delete origin/ .tmp/ 
 
-# overrides files from es directory
+# overrides files from aio-x directory
 rsync -ar aio-x/ .tmp/aio
 
 # build angular.io

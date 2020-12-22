@@ -3,7 +3,7 @@
 ## File organization
 
 -`origin`: manage the `angular/angular` repository as a submodule
--`aio-x`: manage the translation source file `xxx.en.md`, the translation file` .md` and other files to overwrite `origin`.
+-`aio-x`: manage the translation source file `xxx.en.md`, the translation file `.md` and other files to overwrite `origin`.
 
 ### aio directory structure
 
@@ -13,7 +13,7 @@ If necessary, edit the source code of the application as well.
 https://github.com/angular/angular/tree/master/aio
 
 ```
-origin/year /
+origin/aio/
 ├── README.md
 ├── content# A document resource file written in Markdown or HTML. Mainly translate files here
 │ ├── cli document resource #CLI
@@ -33,7 +33,7 @@ origin/year /
 
 Before you start translating, make sure no one is trying to translate the same file.
 [Translation check] (https://github.com/angular/angular-en/labels/type%3A%20Translation%20Checkout) If you look at the tag topic, you can see the area where we are currently working on the translation.
-If you want to make a new translation, [Create problem] (https://github.com/angular/angular-es/issues/new/choose) and fill in the information according to Templates.
+If you want to make a new translation, [Create issue](https://github.com/angular/angular-es/issues/new/choose) and fill in the information according to Templates.
 
 ## Minor fixes
 
@@ -42,27 +42,44 @@ For minor fixes to already translated documentation, create a pull request with 
 ![edit-on-github](./docs/edit-on-github.png)
 ## Add translation
 
-To translate an untranslated document again, copy the source file as `xxx.en.md` from` origin` to `aio-x` and create a translation for that source as` xxx.md`. ..
+To translate an untranslated document again, copy the source file as `xxx.en.md` from `origin` to `aio-x` and create a translation for that source as `xxx.md`. ..
 Submit a pull request to add the two files.
 
 ### Local preparation
 
 #### 1. Cloning the repository
 
+**Using ssh**
 ```
 $ git clone git@github.com:angular-es/AngularComunities.git
+```
+-or-
+
+**Using https:** 
+```
+$ git clone https://github.com/angular-es/AngularComunities.git
 
 ```
+and  
 
-#### 2. Source repository sync
+``` 
+yarn install
+ ```
+
+#### 2. Sync with souce repository
 
 This repository uses a submodule to integrate with the source repository.
 
 ```
 $ git submodule sync
 $ git submodule update --init
+```
+if this doesnt work and you doesnt have a origin folder in your directory run:
 
 ```
+./update-origin.sh
+```
+**this will clone and update the submodule and create the origin folder**
 
 #### 3. First compilation
 
@@ -117,7 +134,7 @@ If you want to make a new translation, [Create a issue](https://github.com/angul
 
 ### Create a translation pull request
 
-Push the changes to the repository where angular/angular-es forked and send a pull request to the source of the fork.
+Push the changes to the repository where angular/angular-x forked and send a pull request to the source of the fork.
 Pull requests will be reviewed and merged if all is ok
 
 ## Translation guidelines
@@ -127,7 +144,7 @@ Follow the guidelines below for Spanish translation.
 ### Save the source text as a `.en.md` file
 
 To manage the difference from the original text after updating the source, save the original text at the time of translation as a `xxx.en.md` file.
-For a new translation, copy the English file `xxx.md` into the file` xxx.en.md` and edit the source file of the copy `xxx.md`.
+For a new translation, copy the English file `xxx.md` into the file `xxx.en.md` and edit the source file of the copy `xxx.md`.
 
 ### Align line break position with original text
 
@@ -163,7 +180,7 @@ error: Error: 6 unmatched links
 ```
 
 This error is a relative link in the documentation warning that the link cannot be found.
-In the first example above, although the `guide/implementation` is linked to` guide/browser-support#polyfills`, the `guide/browser-support` page says `#polyfills`. Warning that the holder does not exist.
+In the first example above, although the `guide/implementation` is linked to `guide/browser-support#polyfills`, the `guide/browser-support` page says `#polyfills`. Warning that the holder does not exist.
 
 This error often occurs when you translate a header that begins with `#`.
 You must add an anchor in the translation to resolve the link reference. Add a form directive `{@a xxxxxx}` to the translated header as follows.

@@ -6,12 +6,12 @@ if [ -d "$DIR" ]; then
 else
   ###  Control will jump here if $DIR does NOT exists ###
   echo "${DIR} not found. Updating origin and cloning the submodule may take long time"
-  git submodule add --force https://github.com/angular/angular.git origin  
+  git clone --recursive https://github.com/angular/angular.git origin  
 fi
 
 echo "Checking aio changes in origin..."
 
-aioHash="e0e2157a28"
+aioHash="b3041aeee3"
 
 git -C origin fetch --all
 git -C origin reset ${aioHash} --hard

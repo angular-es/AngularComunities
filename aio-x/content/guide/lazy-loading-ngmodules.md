@@ -87,7 +87,7 @@ To make one, enter the following command in the terminal, where `customers` is t
 ng generate module customers --route customers --module app.module
 </code-example>
 
-This creates a `customers` folder with the new lazy-loadable module `CustomersModule` defined in the `customers.module.ts` file. The command automatically declares the `CustomersComponent` inside the new feature module.
+This creates a `customers` folder having the new lazy-loadable feature module `CustomersModule` defined in the `customers.module.ts` file and the routing module `CustomersRoutingModule` defined in the `customers-routing.module.ts` file. The command automatically declares the `CustomersComponent` and imports `CustomersRoutingModule` inside the new feature module.
 
 Because the new module is meant to be lazy-loaded, the command does NOT add a reference to the new feature module in the application's root module file, `app.module.ts`.
 Instead, it adds the declared route, `customers` to the `routes` array declared in the module provided as the `--module` option.
@@ -101,7 +101,16 @@ Instead, it adds the declared route, `customers` to the `routes` array declared 
 Notice that the lazy-loading syntax uses `loadChildren` followed by a function that uses the browser's built-in `import('...')` syntax for dynamic imports.
 The import path is the relative path to the module.
 
-#### Add another feature module
+<div class="callout is-helpful">
+<header>String-based lazy loading</header>
+
+In Angular version 8, the string syntax for the `loadChildren` route specification [was deprecated](https://angular.io/guide/deprecations#loadchildren-string-syntax) in favor of the `import()` syntax. However, you can opt into using string-based lazy loading (`loadChildren: './path/to/module#Module'`) by including the lazy-loaded routes in your `tsconfig` file, which includes the lazy-loaded files in the compilation.
+
+By default the CLI will generate projects which stricter file inclusions intended to be used with the `import()` syntax.
+
+</div>
+
+### Add another feature module
 
 Use the same command to create a second lazy-loaded feature module with routing, along with its stub component.
 
@@ -311,7 +320,7 @@ ngOnInit() {
 }
 </code-example>
 
-For more information with a working example, see the [routing tutorial section on preloading](guide/router#preloading-background-loading-of-feature-areas).
+For more information with a working example, see the [routing tutorial section on preloading](guide/router-tutorial-toh#preloading-background-loading-of-feature-areas).
 
 
 <hr>

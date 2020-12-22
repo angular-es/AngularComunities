@@ -53,18 +53,7 @@ Angular supports most recent browsers. This includes the following specific vers
       IE
     </td>
     <td>
-      <div> 11, 10*, 9* ("compatibility view" mode not supported) </div>
-      <div>*deprecated in v10, see the {@link guide/deprecations#ie-9-10-and-mobile deprecations guide}.</div>
-    </td>
-  </tr>
- <tr>
-   <tr>
-    <td>
-      IE Mobile*
-    </td>
-    <td>
-      11
-      <div>*deprecated in v10, see the {@link guide/deprecations#ie-9-10-and-mobile deprecations guide}.</div>
+      <div>11</div>
     </td>
   </tr>
  <tr>
@@ -91,7 +80,7 @@ Angular supports most recent browsers. This includes the following specific vers
     </td>
 
     <td>
-      X (10.0), Pie (9.0), Oreo (8.0), Nougat (7.0)
+      Q (10.0), Pie (9.0), Oreo (8.0), Nougat (7.0)
     </td>
   </tr>
 
@@ -100,8 +89,8 @@ Angular supports most recent browsers. This includes the following specific vers
 <div class="alert is-helpful">
 
 Angular's continuous integration process runs unit tests of the framework on all of these browsers for every pull request,
-using <a href="https://saucelabs.com/">SauceLabs</a> and
-<a href="https://www.browserstack.com">Browserstack</a>.
+using [Sauce Labs](https://saucelabs.com/) and
+[BrowserStack](https://www.browserstack.com/).
 
 </div>
 
@@ -141,7 +130,7 @@ This file incorporates the mandatory and many of the optional polyfills as JavaS
 
 * If you need an _optional_ polyfill, you must install its npm package, then uncomment or create the corresponding import statement in the `src/polyfills.ts` configuration file.
 
-For example, if you need the optional [web animations polyfill](http://caniuse.com/#feat=web-animation), you could install it with `npm`, using the following command (or the `yarn` equivalent):
+For example, if you need the optional [web animations polyfill](https://caniuse.com/web-animation), you could install it with `npm`, using the following command (or the `yarn` equivalent):
 
 <code-example language="sh" class="code-shell">
   # install the optional web animations polyfill
@@ -154,7 +143,7 @@ For many polyfills, you can simply un-comment the corresponding `import` stateme
 <code-example header="src/polyfills.ts">
   /**
   * Required to support Web Animations `@angular/platform-browser/animations`.
-  * Needed for: All but Chrome, Firefox and Opera. http://caniuse.com/#feat=web-animation
+  * Needed for: All but Chrome, Firefox and Opera. https://caniuse.com/web-animation
   **/
   import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 </code-example>
@@ -185,26 +174,12 @@ These are the polyfills required to run an Angular application on each supported
 
     <td>
       Chrome, Firefox, Edge, <br>
-      Safari, Android, IE 10+
+      Safari, Android, IE 11
     </td>
 
     <td>
 
       [ES2015](guide/browser-support#core-es6)
-
-    </td>
-
-  </tr>
-
-  <tr style="vertical-align: top">
-
-    <td>
-      IE 9
-    </td>
-
-    <td>
-
-      ES2015<br>[classList](guide/browser-support#classlist)
 
     </td>
 
@@ -272,30 +247,7 @@ Some features of Angular may require additional polyfills.
     </td>
 
     <td>
-      IE 10, IE 11
-    </td>
-
-  </tr>
-
-  <tr style="vertical-align: top">
-
-    <td>
-
-      [Http](guide/http) when sending and receiving binary data
-    </td>
-
-    <td>
-
-      [Typed&nbsp;Array](guide/browser-support#typedarray)<br>
-
-      [Blob](guide/browser-support#blob)<br>
-
-      [FormData](guide/browser-support#formdata)
-
-    </td>
-
-    <td>
-      IE 9
+      IE 11
     </td>
 
   </tr>
@@ -437,65 +389,11 @@ The following polyfills are used to test the framework itself. They are a good s
 
   </tr>
 
-  <tr>
-
-    <td>
-
-      <a id='typedarray' href="https://github.com/inexorabletash/polyfill/blob/master/typedarray.js">Typed Array</a>
-
-    </td>
-
-    <td>
-      MIT
-    </td>
-
-    <td>
-      4KB
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td>
-
-       <a id='blob' href="https://github.com/eligrey/Blob.js">Blob</a>
-
-    </td>
-
-    <td>
-      MIT
-    </td>
-
-    <td>
-      1.3KB
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td>
-
-       <a id='formdata' href="https://github.com/francois2metz/html5-formdata">FormData</a>
-
-    </td>
-
-    <td>
-      MIT
-    </td>
-
-    <td>
-      0.4KB
-    </td>
-
-  </tr>
-
 </table>
 
 
 \* Figures are for minified and gzipped code,
-computed with the <a href="http://closure-compiler.appspot.com/home">closure compiler</a>.
+computed with the [closure compiler](https://closure-compiler.appspot.com/home).
 
 {@a non-cli}
 
@@ -526,7 +424,7 @@ For example:
     // __Zone_enable_cross_context_check = true;
   &lt;/script>
   &lt;!-- zone.js required by Angular -->
-  &lt;script src="node_modules/zone.js/dist/zone.js">&lt;/script>
+  &lt;script src="node_modules/zone.js/bundles/zone.umd.js">&lt;/script>
 
   &lt;!-- application polyfills -->
 </code-example>
