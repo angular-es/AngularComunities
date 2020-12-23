@@ -3,8 +3,6 @@ Angular is a development platform for building web and mobile applications that 
 Fast guide
 [Get started in 5 minutes](quickstart).
 
-
-
 Changelog
 [Latest improvements](changelog).
 
