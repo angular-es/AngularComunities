@@ -32,7 +32,7 @@ origin/aio/
 ## Translation process flow
 
 Before you start translating, make sure no one is trying to translate the same file.
-[Translation check] (https://github.com/angular/angular-en/labels/type%3A%20Translation%20Checkout) If you look at the tag topic, you can see the area where we are currently working on the translation.
+[Translation check](https://github.com/angular/angular-en/labels/type%3A%20Translation%20Checkout) If you look at the tag topic, you can see the area where we are currently working on the translation.
 If you want to make a new translation, [Create issue](https://github.com/angular/angular-es/issues/new/choose) and fill in the information according to Templates.
 
 ## Minor fixes
@@ -190,3 +190,8 @@ You must add an anchor in the translation to resolve the link reference. Add a f
 ## Polyfill {@a polyfills}
 
 ```
+# **Bonus** 
+The most important and hard work is maintain the interest and participation of the community
+You can create a github [organization](https://github.com/organizations/plan)
+You can use an organization app like slack , teams discord or whatever you like to keep the to maintain communication with the community, and those interested in the project.
+Make a project with task and milestones like the [Angular](https://github.com/angular/angular/projects/) project to keep track of the time and effort 

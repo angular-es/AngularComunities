@@ -9,10 +9,10 @@
 ### Replace Google Analytics ID
 
 
--aio-en/src/environment/environment.archive.ts
--aio-en/src/assets/environment.next.ts
--aio-en/src/ assets/environment.stable.ts
--aio-en/src/environment/environment.ts
+-aio/src/environment/environment.archive.ts
+-aio/src/assets/environment.next.ts
+-aio/src/ assets/environment.stable.ts
+-aio/src/environment/environment.ts
 
 ### Replace favicon.ico
 
