@@ -108,8 +108,7 @@ However, the work in the `.tmp` directory is not managed by Git, so be sure to r
 
 ```
 $ cd .tmp/aio
-$ yarn serve-and-sync
-# starts the sever on localhost:4200 
+$ yarn serve-and-sync starts the sever on localhost:4200 
 
 ```
 

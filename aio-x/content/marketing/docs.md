@@ -1,58 +1,58 @@
-<h1 class="no-toc">Introducción a la documentación de Angular</h1>
+<h1 class="no-toc">Introduction to the Angular Docs</h1>
 
-Angular es un marco de diseño de aplicaciones y una plataforma de desarrollo para crear aplicaciones eficientes y sofisticadas de una sola página.
+Angular is an application design framework and development platform for creating efficient and sophisticated single-page apps.
 
-Estos documentos de Angular lo ayudan a aprender y usar el marco angular y la plataforma de desarrollo, desde su primera aplicación hasta la optimización de aplicaciones complejas de una sola página para empresas. Los tutoriales y guías incluyen ejemplos descargables para acelerar sus proyectos.
+These Angular docs help you learn and use the Angular framework and development platform, from your first application to optimizing complex single-page apps for enterprises.
+Tutorials and guides include downloadable examples to accelerate your projects.
 
 
 <div class="card-container">
   <a href="guide/setup-local" class="docs-card"
     title="Angular Local Environment Setup">
-      <section> Primeros pasos </section>
-       <p> Preparar un entorno local para el desarrollo utilizando CLI de Angular. </p>
-       <p class="card-footer"> Configuración local</p>
+      <section>Get Started</section>
+      <p>Set up your local environment for development with the Angular CLI.</p>
+      <p class="card-footer">Local setup</p>
   </a>
   <a href="guide/architecture" class="docs-card" title="Angular Concepts">
-      <section> Aprendizaje y exploración </section>
-       <p> Aprenda los conceptos básicos de diseño y la arquitectura de las aplicaciones Angular.</p>
-       <p class="card-footer"> Introducción a conceptos </p>
+      <section>Learn and Explore</section>
+      <p>Learn about the fundamental design concepts and architecture of Angular apps.</p>
+      <p class="card-footer">Introduction to Angular concepts</p>
   </a>
-  <a href="start" class="docs-card" title="Angular Getting Started">
-      <section>Echar un un vistazo</section>
-      <p>Examine y trabaje con una pequeña aplicación Angular lista para usar, sin ninguna configuración.</p>
-      <p class="card-footer">Pruebalo ahora</p> 
+  <a href="start" class="docs-card" title="Try out Angular">
+      <section>Take a Look</section>
+      <p>Examine and work with a small ready-made Angular app, without any setup.</p>
+      <p class="card-footer">Try it now</p>
   </a>
   <a href="tutorial" class="docs-card" title="Create an app">
-      <section>Hola Mundo</section>
-      <p>Trabaja en un tutorial completo para crear tu primera aplicación.</p>
-      <p class="card-footer">Tutorial del Tour de los Héroes</p>
+      <section>Hello World</section>
+      <p>Work through a full tutorial to create your first app.</p>
+      <p class="card-footer">Tour of Heroes tutorial</p>
   </a>
 
 
 </div>
 
 
-## Suposiciones
+## Assumptions
 
 
-Estos documentos suponen que ya está familiarizado con [HTML](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML "Learn HTML"), [CSS](https://developer.mozilla.org/docs/Learn/CSS/First_steps "Learn CSS"), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript "Learn JavaScript"),
-y algunas de las herramientas de los [últimos estándares](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Resources "Últimos estándares de JavaScrip"), como las [clases](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes "ES2015 Classes") y [modulos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import "ES2015 Modulos").
-Los ejemplos de código se escriben usando [TypeScript](https://www.typescriptlang.org/ "TypeScript").
-La mayoría de código en Angulare se pueden escribir con el último JavaScript, utilizando [tipos](https://www.typescriptlang.org/docs/handbook/classes.html "Tipos de TypeScript") para la inyección de dependencia y utilizando [decoradores](https://www.typescriptlang.org/docs/handbook/decorators.html "Decoradores") para metadatos.
+These docs assume that you are already familiar with [HTML](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML "Learn HTML"), [CSS](https://developer.mozilla.org/docs/Learn/CSS/First_steps "Learn CSS"), [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript "Learn JavaScript"),
+and some of the tools from the [latest standards](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Resources "Latest JavaScript standards"), such as [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes "ES2015 Classes") and [modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import "ES2015 Modules").
+The code samples are written using [TypeScript](https://www.typescriptlang.org/ "TypeScript").
+Most Angular code can be written with just the latest JavaScript, using [types](https://www.typescriptlang.org/docs/handbook/classes.html "TypeScript Types") for dependency injection, and using [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html "Decorators") for metadata.
 
 
-## Realimentación
+## Feedback
 
-<h4>¡Puedes sentarte con nosotros! </h4>
+<h3>You can sit with us!</h3>
 
-Queremos escuchar de ti. [Informa de problemas o envia sugerencias para documentos futuros.](https://github.com/angular-es/angular-es/issues/new/choose "Formulario de nuevo problema de repositorio de Angular en GitHub")
+We want to hear from you. [Report problems or submit suggestions for future docs](https://github.com/angular/angular/issues/new/choose "Angular GitHub repository new issue form").
 
-Contribuya a documentos de angular creando
-[pull requests](https://github.com/angular-es/angular-es/pulls "Angular Github pull requests")
-en el repositorio Angular Github.
-Consulte [Contribuir a angular](https://github.com/angular/angular-es/blob/master/CONTRIBUTING.md "Guía de contribución")
-para obtener información sobre las pautas de envío.
+Contribute to Angular docs by creating
+[pull requests](https://github.com/angular/angular/pulls "Angular Github pull requests")
+on the Angular Github repository.
+See [Contributing to Angular](https://github.com/angular/angular/blob/master/CONTRIBUTING.md "Contributing guide")
+for information about submission guidelines.
 
-
-Nuestra comunidad valora la comunicación respetuosa y solidaria.
-Consulte y adhiérase al [Código de conducta](https://github.com/angular-es/code-of-conduct/blob/master/CODE_OF_CONDUCT.md "Código de conducta del colaborador").
+Our community values respectful, supportive communication.
+Please consult and adhere to the [Code of Conduct](https://github.com/angular/code-of-conduct/blob/master/CODE_OF_CONDUCT.md "Contributor code of conduct").

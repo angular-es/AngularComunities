@@ -12,6 +12,8 @@ This repository is for translating the official site [angular.io](https://angula
 remenber to change all angularx, to angular_yourLang => example angularbr
 and aiox and aio-x to aioyourlang and aio-yourlang => example aiobr and aio-br
 
+you can visit the online demo here : https://angularespanol.web.app/
+
 ## If you want to use firebase to CI in github actions
 use the main.yml file
 

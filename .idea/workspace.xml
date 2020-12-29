@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7fb8854-15e1-4326-bf61-17287264073c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.firebaserc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/marketing/docs.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/marketing/docs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/marketing/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/marketing/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/navigation.en.json" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/navigation.en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/navigation.json" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/navigation.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/start/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/start/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/start/start-data.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/start/start-data.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/start/start-deployment.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/start/start-deployment.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/start/start-forms.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/start/start-forms.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/start/start-routing.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/start/start-routing.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/changelog.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickstart.md" beforeDir="false" afterPath="$PROJECT_DIR$/quickstart.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,6 +26,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1mI0OYXaetuWKsnBen9JYE47xLI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -29,6 +45,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -40,7 +57,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609165766473</updated>
-      <workItem from="1609165769832" duration="7789000" />
+      <workItem from="1609165769832" duration="8925000" />
+      <workItem from="1609279110994" duration="2781000" />
     </task>
     <task id="LOCAL-00001" summary="Documentation improvement">
       <created>1609179133461</created>
@@ -49,7 +67,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609179133461</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Documentation improvement">
+      <created>1609179337581</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609179337581</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,6 +331,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Documentation improvement" />

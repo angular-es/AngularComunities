@@ -1,90 +1,92 @@
-# Pruébelo: implementación
+# Deploying an application
 
-Para implementar su aplicación, debe compilarla y luego alojar JavaScript, CSS y HTML en un servidor web. Las aplicaciones Built Angular son muy portátiles y pueden vivir en cualquier entorno o servidas por cualquier tecnología, como Node, Java, .NET, PHP y muchas otras.
+
+To deploy your application, you have to compile it, and then host the JavaScript, CSS, and HTML on a web server. Built Angular applications are very portable and can live in any environment or served by any technology, such as Node, Java, .NET, PHP, and many others.
 
 <div class="alert is-helpful">
 
-Ya sea que haya venido aquí directamente desde la [Parte 1](start "Pruébelo: una aplicación básica"), o completó toda la aplicación de la tienda en línea a través de la [Navegación en la aplicación](start/start-routing  "Pruébelo: en la aplicación navegación "), [Administrar datos](start/start-data "Pruébelo: administrar datos ") y [Formularios para entrada de usuario](start/start-forms "Pruébelo: Formularios para entrada de usuario "), tiene una aplicación que puede implementar siguiendo las instrucciones de esta sección.
+Whether you came here directly from [Part 1](start "Try it: A basic app"), or completed the entire online store application through the [In-app navigation](start/start-routing "Try it: In-app navigation"), [Manage data](start/start-data "Try it: Manage data"), and [Forms for user input](start/start-forms "Try it: Forms for user input") sections, you have an application that you can deploy by following the instructions in this section.
 
 </div>
 
-## Comparte tu aplicación
+## Share your application
 
-Los proyectos de StackBlitz son públicos de forma predeterminada, lo que le permite compartir su aplicación Angular a través de la URL del proyecto. Tenga en cuenta que esta es una excelente manera de compartir ideas y prototipos, pero no está destinada al alojamiento de producción.
+StackBlitz projects are public by default, allowing you to share your Angular app via the project URL. Keep in mind that this is a great way to share ideas and prototypes, but it is not intended for production hosting.
 
-1. En su proyecto StackBlitz, asegúrese de haber bifurcado o guardado su proyecto.
-1. En la página de vista previa, debería ver una URL similar a `https: // <ID del proyecto> .stackblitz.io`.
-1. Comparta esta URL con un amigo o colega.
-1. Los usuarios que visiten su URL verán que se inicia un servidor de desarrollo y luego se cargará su aplicación.
+1. In your StackBlitz project, make sure you have forked or saved your project.
+1. In the preview page, you should see a URL that looks like `https://<Project ID>.stackblitz.io`.
+1. Share this URL with a friend or colleague.
+1. Users that visit your URL will see a development server start up, and then your application will load.
 
-## Construyendo localmente
+## Building locally
 
-Para construir su aplicación localmente o para producción, descargue el código fuente de su proyecto StackBlitz haciendo clic en el ícono `Descargar proyecto` en el menú de la izquierda frente a `Proyecto` para descargar sus archivos.
+To build your application locally or for production, download the source code from your StackBlitz project by clicking the `Download Project` icon in the left menu across from `Project` to download your files.
 
-Una vez que haya descargado y descomprimido el código fuente, use la [Consola Angular](https://angularconsole.com "sitio web de la Consola Angular") para servir la aplicación, o instale `Node.js` y sirva su aplicación con Angular CLI.
+Once you have the source code downloaded and unzipped, install `Node.js` and serve your app with the Angular CLI.
 
-Desde la terminal, instale Angular CLI globalmente con:
+From the terminal, install the Angular CLI globally with:
 
 ```sh
 npm install -g @angular/cli
 ```
 
-Esto instala el comando `ng` en su sistema, que es el comando que usa para crear nuevos espacios de trabajo, nuevos proyectos, servir su aplicación durante el desarrollo o producir compilaciones para compartir o distribuir.
+This installs the command `ng` on your system, which is the command you use to create new workspaces, new projects, serve your application during development, or produce builds to share or distribute.
 
-Cree un nuevo espacio de trabajo CLI angular usando el comando [`ng new`](cli/new "CLI de la nueva referencia de comando"):
+Create a new Angular CLI workspace using the [`ng new`](cli/new "CLI ng new command reference") command:
 
 ```sh
 ng new my-project-name
 ```
 
-En su nueva aplicación generada por CLI, reemplace la carpeta `/src` con la de su descarga de `StackBlitz` y luego realice una compilación.
+In your new CLI generated app, replace the `/src` folder with the one from your `StackBlitz` download, and then perform a build.
 
 ```sh
 ng build --prod
 ```
 
-Esto producirá los archivos que necesita implementar.
+This will produce the files that you need to deploy.
 
 <div class="alert is-helpful">
 
-Si el comando `ng build` anterior arroja un error sobre los paquetes faltantes, agregue las dependencias faltantes en el archivo `package.json` de su proyecto local para que coincida con el del proyecto StackBlitz descargado.
+If the above `ng build` command throws an error about missing packages, append the missing dependencies in your local project's `package.json` file to match the one in the downloaded StackBlitz project.
 
 </div>
 
-#### Hospedaje del proyecto construido
+#### Hosting the built project
 
-Los archivos de la carpeta `dist / my-project-name` son estáticos. Esto significa que puede alojarlos en cualquier servidor web capaz de entregar archivos (como `Node.js`, Java, .NET) o cualquier backend (como Firebase, Google Cloud o App Engine).
+The files in the `dist/my-project-name` folder are static. This means you can host them on any web server capable of serving files (such as `Node.js`, Java, .NET), or any backend (such as Firebase, Google Cloud, or App Engine).
 
-### Alojar una aplicación Angular en Firebase
+### Hosting an Angular app on Firebase
 
-Una de las formas más fáciles de hacer que su sitio esté activo es alojarlo con Firebase.
+One of the easiest ways to get your site live is to host it using Firebase.
 
-1. Regístrese para obtener una cuenta de firebase en [Firebase](https://firebase.google.com/ "sitio web de Firebase").
-1. Cree un nuevo proyecto, dándole el nombre que desee.
-1. Agregue los esquemas `@angular/fire` que manejarán su implementación usando `ng add @ angular/fire`.
-1. Conecte su CLI a su cuenta de Firebase e inicialice la conexión a su proyecto usando `firebase login` y `firebase init`.
-1. Siga las indicaciones para seleccionar el proyecto "Firebase" que está creando para el alojamiento.
-    - Seleccione la opción "Alojamiento" en el primer mensaje.
-    - Seleccione el proyecto que creó anteriormente en Firebase.
-    - Seleccione `dist/my-project-name` como directorio público.
-1. Implemente su aplicación con `ng deploy`.
-1. Una vez implementado, visite https://your-firebase-project-name.firebaseapp.com para verlo en vivo.
+1. Sign up for a firebase account on [Firebase](https://firebase.google.com/ "Firebase web site").
+1. Create a new project, giving it any name you like.
+1. Add the `@angular/fire` schematics that will handle your deployment using `ng add @angular/fire`.
+1. Install [Firebase CLI](https://firebase.google.com/docs/cli) globally using `npm install -g firebase-tools`.
+1. Connect your CLI to your Firebase account and initialize the connection to your project using `firebase login` and `firebase init`.
+1. Follow the prompts to select the `Firebase` project you are creating for hosting.
+   - Select the `Hosting` option on the first prompt.
+   - Select the project you previously created on Firebase.
+   - Select `dist/my-project-name` as the public directory.
+1. Deploy your application with `ng deploy`.
+1. Once deployed, visit https://your-firebase-project-name.firebaseapp.com to see it live!
 
-### Alojar una aplicación Angular en cualquier otro lugar
+### Hosting an Angular app anywhere else
 
-Para alojar una aplicación Angular en otro servidor web, cargue o envíe los archivos al servidor.
-Debido a que está construyendo una aplicación de una sola página, también deberá asegurarse de redirigir cualquier URL no válida a su archivo `index.html`.
-Lea más sobre el desarrollo y la distribución de su aplicación en las guías de [Creación y servicio](guide/build "Creación y servicio de aplicaciones angulares") y [Implementación](guide/deployment "Guía de implementación").
+To host an Angular app on another web host, upload or send the files to the host.
+Because you are building a single page application, you'll also need to make sure you redirect any invalid URLs to your `index.html` file.
+Read more about development and distribution of your application in the [Building & Serving](guide/build "Building and Serving Angular Apps") and [Deployment](guide/deployment "Deployment guide") guides.
 
-## Únete a la comunidad Angular
+## Join the Angular community
 
-¡Ahora eres un desarrollador de Angular! [Comparte este momento](https://twitter.com/intent/tweet?url=https://angular.io/start&text=I%20just%20finished%20the%20Angular%20Getting%20Started%20Tutorial "Angular en Twitter" ), díganos qué le pareció este ejercicio de introducción o envíe [sugerencias para ediciones futuras](https://github.com/angular/angular/issues/new/choose "Formulario de nueva edición del repositorio de Angular GitHub").
+You are now an Angular developer! [Share this moment](https://twitter.com/intent/tweet?url=https://angular.io/start&text=I%20just%20finished%20the%20Angular%20Getting%20Started%20Tutorial "Angular on Twitter"), tell us what you thought of this get-started exercise, or submit [suggestions for future editions](https://github.com/angular/angular/issues/new/choose "Angular GitHub repository new issue form").
 
-Angular ofrece muchas más capacidades, y ahora tiene una base que le permite crear una aplicación y explorar esas otras capacidades:
+Angular offers many more capabilities, and you now have a foundation that empowers you to build an application and explore those other capabilities:
 
-* Angular proporciona capacidades avanzadas para aplicaciones móviles, animación, internacionalización, renderización del lado del servidor y más.
-* [Angular Material](https://material.angular.io/ "Sitio web de Angular Material") ofrece una extensa biblioteca de componentes de Material Design.
-* [Angular Protractor](https://protractor.angular.io/ "Sitio web de Angular Transport") ofrece un marco de prueba de extremo a extremo para aplicaciones angulares.
-* Angular también tiene una extensa [red de herramientas y bibliotecas de terceros](resources "Lista de recursos de Angular").
+* Angular provides advanced capabilities for mobile apps, animation, internationalization, server-side rendering, and more.
+* [Angular Material](https://material.angular.io/ "Angular Material web site") offers an extensive library of Material Design components.
+* [Angular Protractor](https://protractor.angular.io/ "Angular Protractor web site") offers an end-to-end testing framework for Angular apps.
+* Angular also has an extensive [network of 3rd-party tools and libraries](resources "Angular resources list").
 
-Manténgase actualizado siguiendo el [Blog de Angular](https://blog.angular.io/ "Blog de Angular").
+Keep current by following the [Angular blog](https://blog.angular.io/ "Angular blog").
