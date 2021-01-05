@@ -42,5 +42,5 @@ Discussions on translation projects are ongoing.
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for the specific workflow.
 
-
 Repo based on [Angular-jp](https://github.com/angular/angular-ja), a special thanks to [@lacolaco](https://github.com/lacolaco)
+

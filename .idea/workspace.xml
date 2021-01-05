@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7fb8854-15e1-4326-bf61-17287264073c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.firebaserc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/marketing/docs.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/marketing/docs.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/marketing/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/marketing/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/navigation.en.json" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/navigation.en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/navigation.json" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/navigation.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/start/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/start/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/start/start-data.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/start/start-data.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/start/start-deployment.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/start/start-deployment.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/start/start-forms.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/start/start-forms.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/start/start-routing.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/start/start-routing.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/changelog.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickstart.md" beforeDir="false" afterPath="$PROJECT_DIR$/quickstart.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +45,8 @@
       <option name="presentableId" value="Default" />
       <updated>1609165766473</updated>
       <workItem from="1609165769832" duration="8925000" />
-      <workItem from="1609279110994" duration="2781000" />
+      <workItem from="1609279110994" duration="2834000" />
+      <workItem from="1609818575889" duration="84000" />
     </task>
     <task id="LOCAL-00001" summary="Documentation improvement">
       <created>1609179133461</created>
@@ -74,7 +62,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609179337581</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="docs: navigation and sync with firebase">
+      <created>1609281943831</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609281943831</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,6 +330,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Documentation improvement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Documentation improvement" />
+    <MESSAGE value="docs: navigation and sync with firebase" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: navigation and sync with firebase" />
   </component>
 </project>
