@@ -20,31 +20,25 @@ The initial app that you create with `ng new app_name` is listed under "projects
 <code-example language="json">
 
 "projects": {
-  "app_name": {
-    ...
-  }
-  ...
+"app_name": {
+...
+}
+...
 }
 
 </code-example>
 
-Each additional app that you create with `ng generate application` has a corresponding end-to-end test project, with its own configuration section.
 When you create a library project with `ng generate library`, the library project is also added to the `projects` section.
 
 <div class="alert is-helpful">
 
-  Note that the `projects` section of the configuration file does not correspond exactly to the workspace file structure.
-  * The initial app created by `ng new` is at the top level of the workspace file structure.
-  * Additional applications and libraries go into a `projects` folder in the workspace.
+Note that the `projects` section of the configuration file does not correspond exactly to the workspace file structure.
+* The initial app created by `ng new` is at the top level of the workspace file structure.
+* Additional applications and libraries go into a `projects` folder in the workspace.
 
-  For more information, see [Workspace and project file structure](guide/file-structure).
+For more information, see [Workspace and project file structure](guide/file-structure).
 
 </div>
-
-## Strict mode
-
-When you create new workspaces and projects, you have the option to use Angular's strict mode, which can help you write better, more maintainable code.
-For more information, see [Strict mode](/guide/strict-mode).
 
 ## Project configuration options
 
@@ -77,9 +71,9 @@ The following top-level configuration properties are available for each project,
 ## Generation schematics
 
 Angular generation [schematics](guide/glossary#schematic) are instructions for modifying a project by adding files or modifying existing files.
-Individual schematics for the default Angular CLI `ng generate` sub-commands are collected in the package `@angular`.
+Individual schematics for the default Angular CLI `ng generate` sub-commands are collected in the package `@schematics/angular`.
 Specify the schematic name for a subcommand in the format `schematic-package:schematic-name`;
-for example, the schematic for generating a component is `@angular:component`.
+for example, the schematic for generating a component is `@schematics/angular:component`.
 
 The JSON schemas for the default schematics used by the CLI to generate projects and parts of projects are collected in the package [`@schematics/angular`](https://github.com/angular/angular-cli/blob/master/packages/schematics/angular/application/schema.json).
 The schema describes the options available to the CLI for each of the `ng generate` sub-commands, as shown in the `--help` output.
@@ -101,7 +95,7 @@ See [Angular CLI Builders](guide/cli-builder).
 ### Default Architect builders and targets
 
 Angular defines default builders for use with specific CLI commands, or with the general `ng run` command.
-The JSON schemas that the define the options and defaults for each of these default builders are collected in the [`@angular-devkit/build-angular`](https://github.com/angular/angular-cli/blob/8.0.x/packages/angular/cli/lib/config/schema.json) package.
+The JSON schemas that define the options and defaults for each of these default builders are collected in the [`@angular-devkit/build-angular`](https://github.com/angular/angular-cli/blob/master/packages/angular/cli/lib/config/schema.json) package.
 The schemas configure options for the following builders.
 
 * app-shell
@@ -109,7 +103,6 @@ The schemas configure options for the following builders.
 * dev-server
 * extract-i18n
 * karma
-* protractor
 * server
 * tslint
 
@@ -139,7 +132,7 @@ See the example in [Build target](#build-target) below.
 </code-example>
 
 * The `architect/build` section configures defaults for options of the `ng build` command.
-See [Build target](#build-target) below for more information.
+  See [Build target](#build-target) below for more information.
 
 * The `architect/serve` section overrides build defaults and supplies additional serve defaults for the `ng serve` command. In addition to the options available for the `ng build` command, it adds options related to serving the app.
 
@@ -175,15 +168,17 @@ The `architect/build` section configures defaults for options of the `ng build` 
 
 ### Alternate build configurations
 
-By default, a `production` configuration is defined, and the `ng build` command has `--prod` option that builds using this configuration. The `production` configuration sets defaults that optimize the app in a number of ways, such as bundling files, minimizing excess whitespace, removing comments and dead code, and rewriting code to use short, cryptic names ("minification").
+Angular CLI comes with two build configurations: `production` and `development`. By default, the `ng build` command uses the `production` configuration, which applies a number of build optimizations, including:
+* Bundling files
+* Minimizing excess whitespace
+* Removing comments and dead code
+* Rewriting code to use short, mangled names (minification)
 
 You can define and name additional alternate configurations (such as `stage`, for instance) appropriate to your development process. Some examples of different build configurations are `stable`, `archive` and `next` used by AIO itself, and the individual locale-specific configurations required for building localized versions of an app. For details, see [Internationalization (i18n)](guide/i18n#merge-aot).
 
 You can select an alternate configuration by passing its name to the `--configuration` command line flag.
 
 You can also pass in more than one configuration name as a comma-separated list. For example, to apply both `stage` and `fr` build configurations, use the command `ng build --configuration stage,fr`. In this case,  the command parses the named configurations from left to right. If multiple configurations change the same setting, the last-set value is the final one.
-
-If the `--prod` command line flag is also used, it is applied first, and its settings can be overridden by any configurations specified via the `--configuration` flag.
 
 {@a build-props}
 
@@ -220,8 +215,8 @@ By default, the `src/assets/` folder and `src/favicon.ico` are copied over.
 <code-example language="json">
 
 "assets": [
-  "src/assets",
-  "src/favicon.ico"
+"src/assets",
+"src/favicon.ico"
 ]
 
 </code-example>
@@ -235,22 +230,23 @@ A asset specification object can have the following fields.
 * `input`: A path relative to the workspace root.
 * `output`: A path relative to `outDir` (default is `dist/`*project-name*). Because of the security implications, the CLI never writes files outside of the project output path.
 * `ignore`: A list of globs to exclude.
+* `followSymlinks`: Allow glob patterns to follow symlink directories. This allows subdirectories of the symlink to be searched. Defaults to `false`.
 
 For example, the default asset paths can be represented in more detail using the following objects.
 
 <code-example language="json">
 
 "assets": [
-  {
-    "glob": "**/*",
-    "input": "src/assets/",
-    "output": "/assets/"
-  },
-  {
-    "glob": "favicon.ico",
-    "input": "src/",
-    "output": "/"
-  }
+{
+"glob": "**/*",
+"input": "src/assets/",
+"output": "/assets/"
+},
+{
+"glob": "favicon.ico",
+"input": "src/",
+"output": "/"
+}
 ]
 
 </code-example>
@@ -261,11 +257,11 @@ For example, the following configuration copies assets from a node package:
 <code-example language="json">
 
 "assets": [
- {
-   "glob": "**/*",
-   "input": "./node_modules/some-package/images",
-   "output": "/some-package/"
- }
+{
+"glob": "**/*",
+"input": "./node_modules/some-package/images",
+"output": "/some-package/"
+}
 ]
 
 </code-example>
@@ -277,12 +273,12 @@ The following example uses the `ignore` field to exclude certain files in the as
 <code-example language="json">
 
 "assets": [
- { 
-   "glob": "**/*",
-   "input": "src/assets/",
-   "ignore": ["**/*.svg"],
-   "output": "/assets/" 
- }
+{
+"glob": "**/*",
+"input": "src/assets/",
+"ignore": ["**/*.svg"],
+"output": "/assets/"
+}
 ]
 
 </code-example>
@@ -300,20 +296,20 @@ For example, the following object values create and name a bundle that contains 
 
 <code-example language="json">
 
-   "styles": [
-     {
-       "input": "src/external-module/styles.scss",
-       "inject": false,
-       "bundleName": "external-module"
-     }
-   ],
-   "scripts": [
-     { 
-       "input": "src/external-module/main.js",
-       "inject": false,
-       "bundleName": "external-module"
-     }
-   ]
+"styles": [
+{
+"input": "src/external-module/styles.scss",
+"inject": false,
+"bundleName": "external-module"
+}
+],
+"scripts": [
+{
+"input": "src/external-module/main.js",
+"inject": false,
+"bundleName": "external-module"
+}
+]
 
 </code-example>
 
@@ -322,10 +318,10 @@ You can mix simple and complex file references for styles and scripts.
 <code-example language="json">
 
 "styles": [
-  "src/styles.css",
-  "src/more-styles.css",
-  { "input": "src/lazy-style.scss", "inject": false },
-  { "input": "src/pre-rename-style.scss", "bundleName": "renamed-style" },
+"src/styles.css",
+"src/more-styles.css",
+{ "input": "src/lazy-style.scss", "inject": false },
+{ "input": "src/pre-rename-style.scss", "bundleName": "renamed-style" },
 ]
 
 </code-example>
@@ -341,9 +337,9 @@ To add paths, use the `stylePreprocessorOptions` option:
 <code-example language="json">
 
 "stylePreprocessorOptions": {
-  "includePaths": [
-    "src/style-paths"
-  ]
+"includePaths": [
+"src/style-paths"
+]
 }
 
 </code-example>
@@ -391,7 +387,7 @@ There are several options that can be used to fine-tune the optimization of an a
 </tr>
 <tr>
 <td><code>styles</code></td>
-<td>Enables optimization of the scripts output.</td>
+<td>Enables optimization of the styles output.</td>
 <td><code>boolean|<a href="#styles-optimization-options">Styles optimization options</a></code></td>
 <td><code>true</code></td>
 </tr>
@@ -425,7 +421,7 @@ There are several options that can be used to fine-tune the optimization of an a
 <td><code>inlineCritical</code></td>
 <td>Extract and inline critical CSS definitions to improve <a href="https://web.dev/first-contentful-paint/">First Contentful Paint.</td>
 <td><code class="no-auto-link">boolean</code></td>
-<td><code>false</code></td>
+<td><code>true</code></td>
 </tr>
 </tbody>
 </table>
@@ -455,21 +451,21 @@ You can supply a value such as the following to apply optimization to one or the
 
 <code-example language="json">
 
-  "optimization": { 
-    "scripts": true,
-    "styles": {
-      "minify": true,
-      "inlineCritical": true
-    },
-    "fonts": true
-  }
+"optimization": {
+"scripts": true,
+"styles": {
+"minify": true,
+"inlineCritical": true
+},
+"fonts": true
+}
 
 </code-example>
 
 <div class="alert is-helpful">
 
-   For [Universal](guide/glossary#universal), you can reduce the code rendered in the HTML page by
-   setting styles optimization to `true`.
+For [Universal](guide/glossary#universal), you can reduce the code rendered in the HTML page by
+setting styles optimization to `true`.
 
 </div>
 
@@ -519,19 +515,19 @@ The example below shows how to toggle one or more values to configure the source
 
 <code-example language="json">
 
-  "sourceMap": {
-    "scripts": true,
-    "styles": false,
-    "hidden": true,
-    "vendor": true
-  }
+"sourceMap": {
+"scripts": true,
+"styles": false,
+"hidden": true,
+"vendor": true
+}
 
 </code-example>
 
 <div class="alert is-helpful">
 
-   When using hidden source maps, source maps will not be referenced in the bundle.
-   These are useful if you only want source maps to map error stack traces in error reporting tools,
-   but don't want to expose your source maps in the browser developer tools.
+When using hidden source maps, source maps will not be referenced in the bundle.
+These are useful if you only want source maps to map error stack traces in error reporting tools,
+but don't want to expose your source maps in the browser developer tools.
 
 </div>

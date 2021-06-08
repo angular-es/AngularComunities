@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c7fb8854-15e1-4326-bf61-17287264073c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/changelog.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/guide/angular-compiler-options.en.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/guide/angular-compiler-options.en.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/guide/creating-libraries.en.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/guide/creating-libraries.en.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/guide/creating-libraries.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/guide/creating-libraries.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/guide/workspace-config.en.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/guide/workspace-config.en.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/guide/workspace-config.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/guide/workspace-config.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/origin" beforeDir="false" afterPath="$PROJECT_DIR$/origin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/origin/.husky/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/origin/.husky/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +32,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,6 +54,9 @@
       <workItem from="1609165769832" duration="8925000" />
       <workItem from="1609279110994" duration="2834000" />
       <workItem from="1609818575889" duration="84000" />
+      <workItem from="1623156204690" duration="28000" />
+      <workItem from="1623156447519" duration="727000" />
+      <workItem from="1623157501459" duration="2534000" />
     </task>
     <task id="LOCAL-00001" summary="Documentation improvement">
       <created>1609179133461</created>

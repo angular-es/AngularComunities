@@ -1,5 +1,6 @@
-# Contribution to angular-es
-
+# Contribution to angular-x
+// change the x to the name of your community,
+please use v12.22.1 to avoid compilation issues 
 ## File organization
 
 -`origin`: manage the `angular/angular` repository as a submodule
@@ -7,7 +8,7 @@
 
 ### aio directory structure
 
-Basically the Markdown file in the `content` directory is translated.
+Basically the Markdown files in the `content` directory are ready translation just watch out for the Dangling Links.
 If necessary, edit the source code of the application as well.
 
 https://github.com/angular/angular/tree/master/aio
@@ -37,12 +38,12 @@ If you want to make a new translation, [Create issue](https://github.com/angular
 
 ## Minor fixes
 
-For minor fixes to already translated documentation, create a pull request with the `Edit` function on GitHub.
+For minor fixes to an already translated documentation, create a pull request with the `Edit` function on GitHub.
 
 ![edit-on-github](./docs/edit-on-github.png)
 ## Add translation
 
-To translate an untranslated document again, copy the source file as `xxx.en.md` from `origin` to `aio-x` and create a translation for that source as `xxx.md`. ..
+To translate an untranslated document again, copy the source file as `xxx.en.md` from `origin` to `aio-x` and create a translation for that source as `xxx.md`.
 Submit a pull request to add the two files.
 
 ### Local preparation
@@ -76,7 +77,7 @@ $ git submodule update --init --recursive
 $ git submodule sync
 $ git submodule update --init
 ```
-if this doesnt work and you doesnt have a origin folder in your directory run:
+if this doesn't work, and you don't have an origin folder in your directory run:
 
 ```
 ./update-origin.sh
@@ -93,7 +94,7 @@ $ ./build.sh
 
 ```
 #### 3.2x
-If you use windows use this command in powershell it can be executed from windows server 2008 > , it has been tested on windows 8 and 10.
+If you use windows use this command in powershell it can be executed from Windows server 2008 > , it has been tested on Windows 8 and 10.
 
 ```
 $./build-win.ps1 or .\build.sh
@@ -102,7 +103,7 @@ $./build-win.ps1 or .\build.sh
 **Note**
 -If you have problems with windows, check if your system is compatible with robocopy & Get-Content.
 -The construction time is very long, so please wait while you make coffee.
--On MacOS, the operating system file descriptor can be used during the build process.
+-On macOS, the operating system file descriptor can be used during the build process.
   In that case, you need to increase the maximum number check this:
 https://github.com/meteor/meteor/issues/8057#issuecomment-261011063
 
@@ -119,12 +120,12 @@ $ ulimit -n 65536
 
 After doing a local compilation once, you can rewrite the file directly to the `.tmp/aio` directory and work seamlessly with a differential compilation.
 As long as the `yarn serve-and-sync` command is running, it can automatically rebuild when there are changes to the files in` .tmp/aio`.
-However, the work in the `.tmp` directory is not managed by Git, so be sure to reflect it in the` aio-x` directory after the job.
+However, the work in the `.tmp` directory ist managed by Git, so be sure to reflect it in the` aio-x` directory after the job.
 
 ```
 $ cd .tmp/aio
 $ yarn serve-and-sync
-# starts the sever on localhost:4200 
+# starts the server on localhost:4200 
 
 ```
 
@@ -155,7 +156,7 @@ If possible, make sure the original and translated lines have the same number of
 ### Follow textlint
 
 Basic unification of notation fluctuations can be automatically corrected using textlint.
-If textlint encounters an error, it is caught in CI and the pull request cannot be merged.
+If textlint find an error, it is caught in CI and the pull request cannot be merged.
 
 ### Keep original nuances
 
@@ -194,6 +195,6 @@ You must add an anchor in the translation to resolve the link reference. Add a f
 ```
 # **Bonus** 
 The most important and hard work is maintain the interest and participation of the community
-You can create a github [organization](https://github.com/organizations/plan)
+You can create a GitHub [organization](https://github.com/organizations/plan)
 You can use an organization app like slack , teams discord or whatever you like to keep the to maintain communication with the community, and those interested in the project.
 Make a project with task and milestones like the [Angular](https://github.com/angular/angular/projects/) project to keep track of the time and effort 
