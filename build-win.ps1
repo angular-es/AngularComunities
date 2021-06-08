@@ -1,4 +1,4 @@
-I$NG_intro = @"
+$NG_intro = @"
                              ,,                             
                       ,,,,,,,,,,,,,,,,                      
                ,,,,,,,,,,,,,,,*,,,,,,,,,,,,,,               
@@ -48,10 +48,3 @@ Set-Location aio
 yarn build
 
 Set-Location ../../
-
-# Copy robots.txt
-robocopy aio-x/src/robots.txt .tmp/aio/dist/ /is
-
-# Modify sitemap
-((Get-Content -path .tmp/aio/dist/generated/sitemap.xml -Raw) -replace 'angular.io','angular-es.dev') | Set-Content -Path .tmp/aio/dist/generated/sitemap.xml
-msbuild

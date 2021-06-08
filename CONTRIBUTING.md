@@ -66,11 +66,13 @@ and
 yarn install
  ```
 
-#### 2. Sync with souce repository
+#### 2. Sync with source repository
 
 This repository uses a submodule to integrate with the source repository.
 
+if is the first time use the command 
 ```
+$ git submodule update --init --recursive
 $ git submodule sync
 $ git submodule update --init
 ```
