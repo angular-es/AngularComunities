@@ -39,11 +39,15 @@ Set-Location ..
 robocopy origin .tmp /e
 
 # overrides files from ja directory
-robocopy aio-x/ .tmp/aio /e
+$FileExtensionToBeExcluded="**/*.en.* **/*.old"
+robocopy aio-x/ .tmp/aio /e $FileExtensionToBeExcluded
 
 # build angular.io
 Set-Location .tmp
+
 yarn install --frozen-lockfile --non-interactive
+
+# build angular.io
 Set-Location aio
 yarn build
 
