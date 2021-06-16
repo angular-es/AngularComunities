@@ -34,7 +34,7 @@ Then, you set the attribute value with an expression that resolves to a string.
 
 <div class="alert is-helpful">
 
-When the expression resolves to `null`, Angular removes the attribute altogether.
+When the expression resolves to `null` or `undefined`, Angular removes the attribute altogether.
 
 </div>
 
@@ -74,10 +74,8 @@ For more information on how to bind to the `colSpan` property, see the [`colspan
 
 </div>
 
-<hr/>
 
 {@a class-binding}
-
 ## Binding to the `class` attribute
 
 You can use class binding to add and remove CSS class names from an element's `class` attribute.
@@ -91,8 +89,13 @@ See [styling delegation](guide/style-precedence#styling-delegation) for more inf
 ### Binding to multiple CSS classes
 
 To bind to multiple classes, use `[class]` set to an expression&mdash;for example, `[class]="classExpression"`.
-The expression can be a space-delimited string of class names, or an object with class names as the keys and truthy or falsy expressions as the values.
-With an object format, Angular adds a class only if its associated value is truthy.
+The expression can be one of:
+
+* A space-delimited string of class names.
+* An object with class names as the keys and truthy or falsy expressions as the values.
+* An array of class names.
+
+With the object format, Angular adds a class only if its associated value is truthy.
 
 <div class="alert is-important">
 
@@ -145,7 +148,7 @@ The following table summarizes class binding syntax.
     <td><code>"my-class-1 my-class-2 my-class-3"</code></td>
   </tr>
   <tr>
-    <td><code>{[key: string]: boolean | undefined | null}</code></td>
+    <td><code>Record&lt;string, boolean | undefined | null&gt;</code></td>
     <td><code>{foo: true, bar: false}</code></td>
   </tr>
   <tr>
@@ -154,10 +157,8 @@ The following table summarizes class binding syntax.
   </tr>
 </table>
 
-<hr/>
 
 {@a style-binding}
-
 ## Binding to the style attribute
 
 You can use style binding to set styles dynamically.
@@ -173,21 +174,35 @@ Optionally, you can add a unit extension like `em` or `%`, which requires a numb
 You can write a style property name in either [dash-case](guide/glossary#dash-case), or
 [camelCase](guide/glossary#camelcase).
 
+<code-example language="html">
+  &lt;nav [style.background-color]="expression"&gt;&lt;/nav&gt;
+
+  &lt;nav [style.backgroundColor]="expression"&gt;&lt;/nav&gt;
+</code-example>
+
 </div>
 
 ### Binding to multiple styles
 
 To toggle multiple styles, bind to the `[style]` attribute&mdash;for example, `[style]="styleExpression"`.
-The expression is often a string list of styles such as `"width: 100px; height: 100px;"`.
+The `styleExpression` can be one of:
 
-You can also format the expression as an object with style names as the keys and style values as the values, such as `{width: '100px', height: '100px'}`.
+* A string list of styles such as `"width: 100px; height: 100px; background-color: cornflowerblue;"`.
+* An object with style names as the keys and style values as the values, such as `{width: '100px', height: '100px', backgroundColor: 'cornflowerblue'}`.
+
+Note that binding an array to `[style]` is not supported.
 
 <div class="alert is-important">
 
-With any object-like expression&mdash;such as `object`, `Array`, `Map`, or `Set`&mdash;the identity of the object must change for Angular to update the class list.
+When binding `[style]` to an object expression, the identity of the object must change for Angular to update the class list.
 Updating the property without changing object identity has no effect.
 
 </div>
+
+#### Single and multiple-style binding example
+
+<code-example path="attribute-binding/src/app/single-and-multiple-style-binding.component.ts" header="nav-bar.component.ts">
+</code-example>
 
 If there are multiple bindings to the same style attribute, Angular uses [styling precedence](guide/style-precedence) to determine which binding to use.
 
@@ -234,29 +249,25 @@ The following table summarizes style binding syntax.
     <td><code>100</code></td>
   </tr>
     <tr>
-    <td rowspan=3>Multi-style binding</td>
-    <td rowspan=3><code>[style]="styleExpression"</code></td>
+    <td rowspan=2>Multi-style binding</td>
+    <td rowspan=2><code>[style]="styleExpression"</code></td>
     <td><code>string</code></td>
     <td><code>"width: 100px; height: 100px"</code></td>
   </tr>
   <tr>
-    <td><code>{[key: string]: string | undefined | null}</code></td>
+    <td><code>Record&lt;string, string | undefined | null&gt;</code></td>
     <td><code>{width: '100px', height: '100px'}</code></td>
   </tr>
-  <tr>
-    <td><code>Array</code><<code>string</code>></td>
-    <td><code>['width', '100px']</code></td>
-  </tr>
 </table>
+
+<div class="alert is-helpful">
 
 The [NgStyle](guide/built-in-directives/#ngstyle) directive can be used as an alternative to direct `[style]` bindings.
 However, using the above style binding syntax without `NgStyle` is preferred because due to improvements in style binding in Angular, `NgStyle` no longer provides significant value, and might eventually be removed in the future.
 
-
-<hr/>
+</div>
 
 {@a styling-precedence}
-
 ## Styling Precedence
 
 A single HTML element can have its CSS class list and style values bound to multiple sources (for example, host bindings from multiple directives).
@@ -319,13 +330,11 @@ In that case, if `dirWithHostBinding` sets its binding to `undefined`, the `widt
 However, if `dirWithHostBinding` sets its binding to `null`, the `width` property will be removed entirely.
 
 
-<hr/>
-
 ## Injecting attribute values
 
 There are cases where you need to differentiate the behavior of a [Component](api/core/Component) or [Directive](api/core/Directive) based on a static value set on the host element as an HTML attribute. For example, you might have a directive that needs to know the `type` of a `<button>` or `<input>` element.
 
-The [Attribute](api/core/Attribute) parameter decorator is great for passing the value of an HTML attribute to a component/directive constructor via [dependency injection](guide/dependency-injection).
+The [Attribute](api/core/Attribute) parameter decorator is great for passing the value of an HTML attribute to a component/directive constructor using [dependency injection](guide/dependency-injection).
 
 <div class="alert is-helpful">
 
@@ -334,8 +343,8 @@ The [Attribute](api/core/Attribute) parameter decorator is great for passing the
 
 </div>
 
-<code-example 
-  path="attribute-binding/src/app/my-input-with-attribute-decorator.component.ts" 
+<code-example
+  path="attribute-binding/src/app/my-input-with-attribute-decorator.component.ts"
   header="src/app/my-input-with-attribute-decorator.component.ts">
 </code-example>
 

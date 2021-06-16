@@ -20,7 +20,7 @@ The compiler does not verify that the value of `user.address.city` is assignable
 The compiler also has some major limitations in this mode:
 
 * Importantly, it doesn't check embedded views, such as `*ngIf`, `*ngFor`, other `<ng-template>` embedded view.
-* It doesn't figure out the types of `#refs`, the results of pipes, the type of `$event` in event bindings, and so on.
+* It doesn't figure out the types of `#refs`, the results of pipes, or the type of `$event` in event bindings.
 
 In many cases, these things end up as type `any`, which can cause subsequent parts of the expression to go unchecked.
 
@@ -41,16 +41,17 @@ The following still have type `any`.
 * The `$event` object.
 * Safe navigation expressions.
 
+
 {@a strict-mode}
 
 ### Strict mode
 
-Angular version 9 maintains the behavior of the `fullTemplateTypeCheck` flag, and introduces a third "strict mode".
+Angular maintains the behavior of the `fullTemplateTypeCheck` flag, and introduces a third "strict mode".
 Strict mode is a superset of full mode, and is accessed by setting the `strictTemplates` flag to true. This flag supersedes the `fullTemplateTypeCheck` flag.
-In strict mode, Angular version 9 adds checks that go beyond the version 8 type-checker.
+In strict mode, Angular uses checks that go beyond the version 8 type-checker.
 Note that strict mode is only available if using Ivy.
 
-In addition to the full mode behavior, Angular version 9:
+In addition to the full mode behavior, Angular does the following:
 
 * Verifies that component/directive bindings are assignable to their `@Input()`s.
 * Obeys TypeScript's `strictNullChecks` flag when validating the above.
@@ -94,7 +95,7 @@ In strict mode, Angular knows that the `user` in the `<span>` has a type of `Use
 
 ## Troubleshooting template errors
 
-When enabling the new strict mode in version 9, you might encounter template errors that didn't arise in either of the previous modes.
+With strict mode, you might encounter template errors that didn't arise in either of the previous modes.
 These errors often represent genuine type mismatches in the templates that were not caught by the previous tooling.
 If this is the case, the error message should make it clear where in the template the problem occurs.
 
@@ -109,33 +110,71 @@ In case of a false positive like these, there are a few options:
 * Use the [`$any()` type-cast function](guide/template-expression-operators#any-type-cast-function) in certain contexts to opt out of type-checking for a part of the expression.
 * You can disable strict checks entirely by setting `strictTemplates: false` in the application's TypeScript configuration file, `tsconfig.json`.
 * You can disable certain type-checking operations individually, while maintaining strictness in other aspects, by setting a _strictness flag_ to `false`.
-* If you want to use `strictTemplates` and `strictNullChecks` together, you can opt out of strict null type checking specifically for input bindings via `strictNullInputTypes`.
+* If you want to use `strictTemplates` and `strictNullChecks` together, you can opt out of strict null type checking specifically for input bindings using `strictNullInputTypes`.
 
-|Strictness flag|Effect|
-|-|-|
-|`strictInputTypes`|Whether the assignability of a binding expression to the `@Input()` field is checked. Also affects the inference of directive generic types. |
-|`strictInputAccessModifiers`|Whether access modifiers such as `private`/`protected`/`readonly` are honored when assigning a binding expression to an `@Input()`. If disabled, the access modifiers of the `@Input` are ignored; only the type is checked.|
-|`strictNullInputTypes`|Whether `strictNullChecks` is honored when checking `@Input()` bindings (per `strictInputTypes`). Turning this off can be useful when using a library that was not built with `strictNullChecks` in mind.|
-|`strictAttributeTypes`|Whether to check `@Input()` bindings that are made using text attributes (for example, `<mat-tab label="Step 1">` vs `<mat-tab [label]="'Step 1'">`).
-|`strictSafeNavigationTypes`|Whether the return type of safe navigation operations (for example, `user?.name`) will be correctly inferred based on the type of `user`). If disabled, `user?.name` will be of type `any`.
-|`strictDomLocalRefTypes`|Whether local references to DOM elements will have the correct type. If disabled `ref` will be of type `any` for `<input #ref>`.|
-|`strictOutputEventTypes`|Whether `$event` will have the correct type for event bindings to component/directive an `@Output()`, or to animation events. If disabled, it will be `any`.|
-|`strictDomEventTypes`|Whether `$event` will have the correct type for event bindings to DOM events. If disabled, it will be `any`.|
-|`strictContextGenerics`|Whether the type parameters of generic components will be inferred correctly (including any generic bounds). If disabled, any type parameters will be `any`.|
-|`strictLiteralTypes`|Whether object and array literals declared in the template will have their type inferred. If disabled, the type of such literals will be `any`.|
-
+Unless otherwise noted, each option below is set to the value for `strictTemplates` (`true` when `strictTemplates` is `true` and vice versa).
+<table>
+  <thead>
+    <tr>
+      <th>Strictness flag</th>
+      <th>Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>strictInputTypes</code></td>
+      <td>Whether the assignability of a binding expression to the <code>@Input()</code> field is checked. Also affects the inference of directive generic types.</td>
+    </tr>
+    <tr>
+      <td><code>strictInputAccessModifiers</code></td>
+      <td>Whether access modifiers such as <code>private</code>/<code>protected</code>/<code>readonly</code> are honored when assigning a binding expression to an <code>@Input()</code>. If disabled, the access modifiers of the <code>@Input</code> are ignored; only the type is checked. This option is <code>false</code> by default, even with <code>strictTemplates</code> set to <code>true</code>.</td>
+    </tr>
+    <tr>
+      <td><code>strictNullInputTypes</code></td>
+      <td>Whether <code>strictNullChecks</code> is honored when checking <code>@Input()</code> bindings (per <code>strictInputTypes</code>). Turning this off can be useful when using a library that was not built with <code>strictNullChecks</code> in mind.</td>
+    </tr>
+    <tr>
+      <td><code>strictAttributeTypes</code></td>
+      <td>Whether to check <code>@Input()</code> bindings that are made using text attributes (for example, <code>&lt;mat-tab label="Step 1"&gt;</code> vs <code>&lt;mat-tab [label]="'Step 1'"&gt;</code>).</td>
+    </tr>
+    <tr>
+      <td><code>strictSafeNavigationTypes</code></td>
+      <td>Whether the return type of safe navigation operations (for example, <code>user?.name</code>) will be correctly inferred based on the type of <code>user</code>). If disabled, <code>user?.name</code> will be of type <code>any</code>.</td>
+    </tr>
+    <tr>
+      <td><code>strictDomLocalRefTypes</code></td>
+      <td>Whether local references to DOM elements will have the correct type. If disabled <code>ref</code> will be of type <code>any</code> for <code>&lt;input #ref&gt;</code>.</td>
+    </tr>
+    <tr>
+      <td><code>strictOutputEventTypes</code></td>
+      <td>Whether <code>$event</code> will have the correct type for event bindings to component/directive an <code>@Output()</code>, or to animation events. If disabled, it will be <code>any</code>.</td>
+    </tr>
+    <tr>
+      <td><code>strictDomEventTypes</code></td>
+      <td>Whether <code>$event</code> will have the correct type for event bindings to DOM events. If disabled, it will be <code>any</code>.</td>
+    </tr>
+    <tr>
+      <td><code>strictContextGenerics</code></td>
+      <td>Whether the type parameters of generic components will be inferred correctly (including any generic bounds). If disabled, any type parameters will be <code>any</code>.</td>
+    </tr>
+    <tr>
+      <td><code>strictLiteralTypes</code></td>
+      <td>Whether object and array literals declared in the template will have their type inferred. If disabled, the type of such literals will be <code>any</code>. This flag is <code>true</code> when <em>either</em> <code>fullTemplateTypeCheck</code> or <code>strictTemplates</code> is set to <code>true</code>.</td>
+    </tr>
+  </tbody>
+</table>
 
 If you still have issues after troubleshooting with these flags, you can fall back to full mode by disabling `strictTemplates`.
 
-If that doesn't work, an option of last resort is to turn off full mode entirely with `fullTemplateTypeCheck: false`, as we've made a special effort to make Angular version 9 backwards compatible in this case.
+If that doesn't work, an option of last resort is to turn off full mode entirely with `fullTemplateTypeCheck: false`.
 
 A type-checking error that you cannot resolve with any of the recommended methods can be the result of a bug in the template type-checker itself.
 If you get errors that require falling back to basic mode, it is likely to be such a bug.
-If this happens, please [file an issue](https://github.com/angular/angular/issues) so the team can address it.
+If this happens, [file an issue](https://github.com/angular/angular/issues) so the team can address it.
 
 ## Inputs and type-checking
 
-In Angular version 9, the template type checker checks whether a binding expression's type is compatible with that of the corresponding directive input.
+The template type checker checks whether a binding expression's type is compatible with that of the corresponding directive input.
 As an example, consider the following component:
 
 ```typescript
@@ -156,7 +195,7 @@ The `AppComponent` template uses this component as follows:
 
 ```ts
 @Component({
-  selector: 'my-app',
+  selector: 'app-root',
   template: '<user-detail [user]="selectedUser" />',
 })
 export class AppComponent {
@@ -228,6 +267,7 @@ Consider the following directive:
 class SubmitButton {
   private _disabled: boolean;
 
+  @Input()
   get disabled(): boolean {
     return this._disabled;
   }
@@ -269,6 +309,7 @@ As a workaround for this problem, Angular supports checking a wider, more permis
 class SubmitButton {
   private _disabled: boolean;
 
+  @Input()
   get disabled(): boolean {
     return this._disabled;
   }

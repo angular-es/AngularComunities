@@ -39,7 +39,7 @@ Set-Location ..
 robocopy origin .tmp /e
 
 # overrides files from ja directory
-$FileExtensionToBeExcluded="**/*.en.* **/*.old"
+$FileExtensionToBeExcluded="*.en.md *.old.md"
 robocopy aio-x/ .tmp/aio /e $FileExtensionToBeExcluded
 
 # build angular.io

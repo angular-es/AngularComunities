@@ -14,7 +14,7 @@ Get the `aioHash` from the last angular.io footer.
 ![image](./docs/aio-origin-hash.png)
 
 `` `sh
-aioHash = "38c592ea0a"
+aioHash = "6bf4cb6d44"
 `` ''
 
 2. Run `update-origin.sh`

@@ -4,7 +4,7 @@ Welcome to Angular!
 
 This tutorial introduces you to the essentials of Angular by walking you through building an e-commerce site with a catalog, shopping cart, and check-out form.
 
-To help you get started right away, this tutorial uses a ready-made application that you can examine and modify interactively on [Stackblitz](https://stackblitz.com/)&mdash;without having to [set up a local work environment](guide/setup-local "Setup guide").
+To help you get started right away, this tutorial uses a ready-made application that you can examine and modify interactively on [StackBlitz](https://stackblitz.com/)&mdash;without having to [set up a local work environment](guide/setup-local "Setup guide").
 StackBlitz is a browser-based development environment where you can create, save, and share projects using a variety of technologies.
 
 ## Prerequisites
@@ -13,13 +13,10 @@ To get the most out of this tutorial you should already have a basic understandi
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML "Learning HTML: Guides and tutorials")
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript "JavaScript")
-* [TypeScript](https://www.typescriptlang.org/docs/home.html "TypeScript documentation")
-
-<hr />
+* [TypeScript](https://www.typescriptlang.org/ "The TypeScript language")
 
 
 {@a components}
-
 ## Take a tour of the example application
 
 You build Angular applications with components.
@@ -68,7 +65,7 @@ The preview features two areas:
 
 The project section on the left shows the source files that make up the application, including the infrastructure and configuration files.
 
-When you generate the StackBlitz example apps that accompany the tutorials, StackBlitz creates the starter files and mock data for you.
+When you generate the StackBlitz example applications that accompany the tutorials, StackBlitz creates the starter files and mock data for you.
 The files you use throughout the tutorial are in the `src` folder.
 
 For more information on how to use StackBlitz, see the [StackBlitz documentation](https://developer.stackblitz.com/docs/platform/).
@@ -263,8 +260,6 @@ The `ProductAlertsComponent` needs to emit an event when the user clicks **Notif
 
 For more information on communication between components, see [Component Interaction](guide/component-interaction "Component interaction").
 
-<hr />
-
 {@a whats-next}
 
 ## What's next
@@ -274,4 +269,4 @@ In this section, you've created an application that iterates through data and fe
 To continue exploring Angular and developing this application:
 
 * Continue to [In-app navigation](start/start-routing "Getting started: In-app navigation") to create a product details page.
-* Skip ahead to [Deployment](start/start-deployment "Getting started: Deployment") to move to local development, or deploy your app to Firebase or your own server.
+* Skip ahead to [Deployment](start/start-deployment "Getting started: Deployment") to move to local development, or deploy your application to Firebase or your own server.

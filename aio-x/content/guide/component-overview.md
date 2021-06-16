@@ -19,8 +19,8 @@ To view or download the example code used in this topic, see the <live-example><
 
 To create a component, verify that you have met the following prerequisites:
 
-1. Install the Angular CLI.
-1. Create an Angular project.
+1. [Install the Angular CLI.](guide/setup-local#install-the-angular-cli)
+1. [Create an Angular workspace](guide/setup-local#create-a-workspace-and-initial-application) with initial application.
    If you don't have a project, you can create one using `ng new <project-name>`, where `<project-name>` is the name of your Angular application.
 
 ## Creating a component
@@ -156,7 +156,7 @@ An Angular component requires a template defined using `template` or `templateUr
 
 You can declare component styles uses for its template in one of two ways: by referencing an external file, or directly within the component.
 
-To declare the styles for a component in a separate file, add a `stylesUrls` property to the `@Component` decorator.
+To declare the styles for a component in a separate file, add a `styleUrls` property to the `@Component` decorator.
 
 <code-example
     path="component-overview/src/app/component-overview/component-overview.component.ts"
@@ -180,3 +180,4 @@ The `styles` property takes an array of strings that contain the CSS rule declar
 * For more information on styling components, see [Component styles](guide/component-styles).
 * For more information on templates, see [Template syntax](guide/template-syntax).
 
+@reviewed 2021-03-18

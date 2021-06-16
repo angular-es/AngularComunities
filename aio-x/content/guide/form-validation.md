@@ -8,9 +8,9 @@ in both reactive and template-driven forms.
 
 Before reading about form validation, you should have a basic understanding of the following.
 
-* [TypeScript](https://www.typescriptlang.org/docs/home.html "The TypeScript language") and HTML5  programming.
+* [TypeScript](https://www.typescriptlang.org/ "The TypeScript language") and HTML5  programming.
 
-* Fundamental concepts of [Angular app design](guide/architecture "Introduction to Angular app-design concepts").
+* Fundamental concepts of [Angular application design](guide/architecture "Introduction to Angular application-design concepts").
 
 * The [two types of forms that Angular supports](guide/forms-overview "Introduction to Angular forms").
 
@@ -351,3 +351,7 @@ With reactive forms, set the property in the `FormControl` instance.
 ```typescript
 new FormControl('', {updateOn: 'blur'});
 ```
+
+## Interaction with native HTML form validation
+
+By default, Angular disables [native HTML form validation](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Constraint_validation) by adding the `novalidate` attribute on the enclosing `<form>` and uses directives to match these attributes with validator functions in the framework. If you want to use native validation **in combination** with Angular-based validation, you can re-enable it with the `ngNativeValidate` directive. See the [API docs](https://angular.io/api/forms/NgForm#native-dom-validation-ui) for details.
