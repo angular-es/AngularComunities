@@ -4,157 +4,161 @@ imports:
   - path: ./node_modules/prh-rules/media/techbooster.yml
     disableImports: true
     ignoreRules:
+      # 日本語以外のファイルでは半角カッコを使うため
       - expected: （$1）
 rules:
 
-# Paraphrase
+# 言い換え
 
-  -expected: dependency injections
-    pattern: dependency injections
+  - expected: 依存性の注入
+    pattern: 依存性注入
 
-  -expected: dependency injection
-    pattern: dependency injection
+  - expected: 依存性を注入し
+    pattern: 依存注入し
 
-  -expected: one-way
-    pattern: one-way
+  - expected: 単方向
+    pattern: 一方向
 
-  -expected: two-way
-    pattern: two-way
+  - expected: 双方向
+    pattern: 二方向
 
-  -expected: change detection
-    pattern: change detection
+  - expected: 変更検知
+    pattern: 変更検出
 
-  -expected: Service Worker
+  - expected: Service Worker
     pattern:
-      -ServiceWorker
-      -Service worker
+      - ServiceWorker
+      - サービスワーカー
     options:
       wordBoundary: true
 
-  -expected: next
-    pattern: next
+  - expected: 次の
+    pattern: つぎの
 
-  -expected: inject
-    pattern: inject
+  - expected: 注入する
+    pattern: インジェクトする
 
-  -expected: injectable
-    pattern: injectable
+  - expected: 注入可能
+    pattern: インジェクト可能
 
-  -expected: see
-    pattern: Please refer
+  - expected: 参照してください
+    pattern: ご参照ください
 
-  -expected: propagate
-    pattern: transmitted
+  - expected: 伝播する
+    pattern: 伝わる
 
-  -expected: propagated
-    pattern: message
+  - expected: 伝播し
+    pattern: 伝わり
 
-  -expected: static
-    pattern: static
+  - expected: 静的な
+    pattern: staticな
   
-  -expected: easy to do
-    pattern: easy to do
+  - expected: しやすく
+    pattern: し易く
 
-  -expected: easy to do
-    pattern: easy to do
+  - expected: しやすい
+    pattern: し易い
 
-  -expected: subscribe
-    pattern: subscribe
+  - expected: 購読する
+    pattern: サブスクライブする
   
-  -expected: for
-    pattern: / (line | product)?
+  - expected: ため
+    pattern: /(行|作)?為(?!替)/
     regexpMustEmpty: $1
 
-#Katakana
+# カタカナ語
 
-  -expected: observer
-    pattern: / Observer (?! ー) /
+  - expected: アプリケーション
+    pattern: /アプリ(?!ケーション)/
 
-  -expected: provider
-    pattern: /provider(?!ー)/
+  - expected: オブザーバー
+    pattern: /オブザーバ(?!ー)/
 
-  -expected: server
-    pattern: / server (?! ー) /
+  - expected: プロバイダー
+    pattern:  /プロバイダ(?!ー)/
 
-  -expected: browser
-    pattern: /browser/
+  - expected: サーバー
+    pattern: /サーバ(?!ー)/
 
-  -expected: subscriber
-    pattern: / Subscriber (?! ー) /
+  - expected: ブラウザ
+    pattern: /ブラウザー/
 
-  -expected: router
-    pattern: /router(?!ー)/
+  - expected: サブスクライバー
+    pattern: /サブスクライバ(?!ー)/
+
+  - expected: ルーター
+    pattern: /ルータ(?!ー)/
   
-  -expected: decorator
-    pattern: / Decorator (?! ー) /
+  - expected: デコレーター
+    pattern: /デコレータ(?!ー)/
 
-  -expected: injector
-    pattern: / injector (?! ー) /
+  - expected: インジェクター
+    pattern: /インジェクタ(?!ー)/
 
-  -expected: user
-    pattern: / user (?! ー) /
+  - expected: ユーザー
+    pattern: /ユーザ(?!ー)/
 
-  -expected: selector
-    pattern: / selector (?!ー)/
+  - expected: セレクター
+    pattern: /セレクタ(?!ー)/
 
-  -expected: category
-    pattern: / category (?! ー) /
+  - expected: カテゴリー
+    pattern: /カテゴリ(?!ー)/
 
-  -expected: constructor
-    pattern: / constructor (?! ー) /
+  - expected: コンストラクター
+    pattern: /コンストラクタ(?!ー)/
 
-  -expected: operator
-    pattern: / operator (?!ー)/
+  - expected: オペレーター
+    pattern: /オペレータ(?!ー)/
 
-  -expected: recovery
-    pattern: / recovery (?! ー) /
+  - expected: リカバリー
+    pattern: /リカバリ(?!ー)/
 
-  -expected: emitter
-    pattern: / emitter (?! ー) /
+  - expected: エミッター
+    pattern: /エミッタ(?!ー)/
 
-  -expected: trigger
-    pattern: / trigger (?! ー) /
+  - expected: トリガー
+    pattern: /トリガ(?!ー)/
   
-  -expected: handler
-    pattern: / handler (?! ー) /
+  - expected: ハンドラー
+    pattern: /ハンドラ(?!ー)/
 
-  -expected: listener
-    pattern: / listener (?! ー) /
+  - expected: リスナー
+    pattern: /リスナ(?!ー)/
 
-  -expected: Technology
-    pattern: / Technology (?! ー) /
+  - expected: テクノロジー
+    pattern: /テクノロジ(?!ー)/
 
-  -expected: manager
-    pattern: / Manager (?! ー) /
+  - expected: マネージャー
+    pattern: /マネージャ(?!ー)/
 
-  -expected: quotes
-    pattern: quote
+  - expected: クオート
+    pattern: クォート
 
-  -expected: interface
+  - expected: インターフェース
     pattern:
-      -Interface
-      -Interface
-      -Interface
+      - インタフェース
+      - インターフェイス
+      - インタフェイス
 
-  -expected: Promise
-    pattern: promise
+  - expected: Promise
+    pattern: プロミス
 
-  -expected: Observable
-    pattern: observable
+  - expected: Observable
+    pattern: オブザーバブル
 
-  -expected: input element
-    pattern: input element
+  - expected: input要素
+    pattern: インプット要素
 
-  -expected: static method
-    pattern: static method
+  - expected: 静的メソッド
+    pattern: スタティックメソッド
 
-  -expected: user experience
-    pattern: user experience
+  - expected: ユーザー体験
+    pattern: ユーザーエクスペリエンス
 
-  -expected: prefix
-    pattern: prefix
+  - expected: 接頭辞
+    pattern: プレフィックス
 
-  -expected: suffix
-    pattern:
-      -Suffix
-      -Postfix
+  - expected: 接尾辞
+    pattern: 
+      - サフィックス
+      - ポストフィックス

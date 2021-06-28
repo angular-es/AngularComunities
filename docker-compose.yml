@@ -1,0 +1,23 @@
+version: "3"
+services:
+  build-aio:
+    build:
+      context: .
+      dockerfile: tools/dockerbuild/build.dockerfile
+    image: angular-x/build-aio
+    volumes: 
+      - ./aio-x:/aio-x
+      - ./scripts:/scripts
+      - ./build-out:/origin/aio/dist
+  watch-aio:
+    build:
+      context: .
+      dockerfile: tools/dockerbuild/watch.dockerfile
+    image: angular-x/watch-aio
+    ports:
+      - "4200:4200"
+    volumes: 
+      - ./aio-x:/aio-x
+      - ./scripts:/scripts
+    environment:
+      CHOKIDAR_USEPOLLING: ${CHOKIDAR_USEPOLLING:-false}

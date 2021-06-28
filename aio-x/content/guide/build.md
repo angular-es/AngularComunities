@@ -94,11 +94,12 @@ export class AppComponent {
   title = 'app works!';
 }
 ```
+
 {@a file-replacement}
 
 ## Configure target-specific file replacements
 
-The main CLI configuration file, `angular.json`, contains a `fileReplacements` section in the configuration for each build target, which allows you to replace any file with a target-specific version of that file.
+The main CLI configuration file, `angular.json`, contains a `fileReplacements` section in the configuration for each build target, which allows you to replace any file in the TypeScript program with a target-specific version of that file.
 This is useful for including target-specific code or variables in a build that targets a specific environment, such as production or staging.
 
 By default no files are replaced.
@@ -117,7 +118,7 @@ For example:
     ...
 ```
 
-This means that when you build your production configuration (using `ng build --prod` or `ng build --configuration=production`), the `src/environments/environment.ts` file is replaced with the target-specific version of the file, `src/environments/environment.prod.ts`.
+This means that when you build your production configuration with `ng build --configuration production`, the `src/environments/environment.ts` file is replaced with the target-specific version of the file, `src/environments/environment.prod.ts`.
 
 You can add additional configurations as required. To add a staging environment, create a copy of `src/environments/environment.ts` called `src/environments/environment.staging.ts`, then add a `staging` configuration to `angular.json`:
 
@@ -140,7 +141,7 @@ Any option that your build supports can be overridden in a build target configur
 
 To build using the staging configuration, run the following command:
 
-<code-example language="sh" class="code-shell">
+<code-example language="sh">
  ng build --configuration=staging
 </code-example>
 
@@ -197,7 +198,7 @@ Specify size values in the following formats:
 
 * 12%: Percentage of size relative to baseline. (Not valid for baseline values.)
 
-When you configure a budget, the build system warns or reports an error when a given part of the app reaches or exceeds a boundary size that you set.
+When you configure a budget, the build system warns or reports an error when a given part of the application reaches or exceeds a boundary size that you set.
 
 Each budget entry is a JSON object with the following properties:
 
@@ -214,10 +215,10 @@ Each budget entry is a JSON object with the following properties:
     The type of budget. One of:
 
 * `bundle` - The size of a specific bundle.
-* `initial` - The initial size of the app.
+* `initial` - The size of JavaScript needed for bootstrapping the application. Defaults to warning @ 500kb and erroring at 1mb.
 * `allScript` - The size of all scripts.
-* `all` - The size of the entire app.
-* `anyComponentStyle` - This size of any one component stylesheet.
+* `all` - The size of the entire application.
+* `anyComponentStyle` - This size of any one component stylesheet. Defaults to warning at 2kb and erroring at 4kb.
 * `anyScript` - The size of any one script.
 * `any` - The size of any file.
 
@@ -320,7 +321,7 @@ See the [browserslist repo](https://github.com/browserslist/browserslist) for mo
 
 ### Backward compatibility with Lighthouse
 
-If you want to produce a progressive web app and are using [Lighthouse](https://developers.google.com/web/tools/lighthouse/) to grade the project, add the following `browserslist` entry to your `package.json` file, in order to eliminate the [old flexbox](https://developers.google.com/web/tools/lighthouse/audits/old-flexbox) prefixes:
+If you want to produce a progressive web application and are using [Lighthouse](https://developers.google.com/web/tools/lighthouse/) to grade the project, add the following `browserslist` entry to your `package.json` file, in order to eliminate the [old flexbox](https://developers.google.com/web/tools/lighthouse/audits/old-flexbox) prefixes:
 
 ```
 "browserslist": [
@@ -334,7 +335,7 @@ If you want to produce a progressive web app and are using [Lighthouse](https://
 
 CSS grid layout support in Autoprefixer, which was previously on by default, is off by default in Angular 8 and higher.
 
-To use CSS grid with IE10/11, you must explicitly enable it using the `autoplace` option.
+To use CSS grid with Internet Explorer 10/11, you must explicitly enable it using the `autoplace` option.
 To do this, add the following to the top of the global styles file (or within a specific css selector scope):
 
 ```
@@ -347,12 +348,11 @@ or
 
 For more information, see [Autoprefixer documentation](https://autoprefixer.github.io/).
 
-
 {@a proxy}
 
 ## Proxying to a backend server
 
-You can use the [proxying support](https://webpack.js.org/configuration/dev-server/#devserverproxy) in the `webpack` dev server to divert certain URLs to a backend server, by passing a file to the `--proxy-config` build option.
+You can use the [proxying support](https://webpack.js.org/configuration/dev-server/#devserverproxy) in the `webpack` development server to divert certain URLs to a backend server, by passing a file to the `--proxy-config` build option.
 For example, to divert all calls for `http://localhost:4200/api` to a server running on `http://localhost:3000/api`, take the following steps.
 
 1. Create a file `proxy.conf.json` in your project's `src/` folder.
@@ -380,7 +380,7 @@ For example, to divert all calls for `http://localhost:4200/api` to a server run
     ...
     ```
 
-1. To run the dev server with this proxy configuration, call `ng serve`.
+1. To run the development server with this proxy configuration, call `ng serve`.
 
 You can edit the proxy configuration file to add configuration options; some examples are given below.
 For a description of all options, see [webpack DevServer documentation](https://webpack.js.org/configuration/dev-server/#devserverproxy).
@@ -503,7 +503,7 @@ module.exports = PROXY_CONFIG;
 If you work behind a corporate proxy, the backend cannot directly proxy calls to any URL outside your local network.
 In this case, you can configure the backend proxy to redirect calls through your corporate proxy using an agent:
 
-<code-example language="none" class="code-shell">
+<code-example language="sh">
 npm install --save-dev https-proxy-agent
 </code-example>
 
@@ -533,3 +533,9 @@ function setupForCorporateProxy(proxyConfig) {
 
 module.exports = setupForCorporateProxy(proxyConfig);
 ```
+
+{@a browser-compat}
+
+## Configuring browser compatibility
+
+See [browser support guide](guide/browser-support).

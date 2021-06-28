@@ -18,14 +18,14 @@ Here are some reasons you might want to use AOT.
 
 * *Faster rendering*
    With AOT, the browser downloads a pre-compiled version of the application.
-   The browser loads executable code so it can render the application immediately, without waiting to compile the app first.
+   The browser loads executable code so it can render the application immediately, without waiting to compile the application first.
 
 * *Fewer asynchronous requests*
    The compiler _inlines_ external HTML templates and CSS style sheets within the application JavaScript,
    eliminating separate ajax requests for those source files.
 
 * *Smaller Angular framework download size*
-   There's no need to download the Angular compiler if the app is already compiled.
+   There's no need to download the Angular compiler if the application is already compiled.
    The compiler is roughly half of Angular itself, so omitting it dramatically reduces the application payload.
 
 * *Detect template errors earlier*
@@ -43,10 +43,10 @@ Here are some reasons you might want to use AOT.
 
 Angular offers two ways to compile your application:
 
-* **_Just-in-Time_ (JIT)**, which compiles your app in the browser at runtime. This was the default until Angular 8.
-* **_Ahead-of-Time_ (AOT)**, which compiles your app and libraries at build time. This is the default since Angular 9.
+* **_Just-in-Time_ (JIT)**, which compiles your application in the browser at runtime. This was the default until Angular 8.
+* **_Ahead-of-Time_ (AOT)**, which compiles your application and libraries at build time. This is the default since Angular 9.
 
-When you run the [`ng build`](cli/build) (build only) or [`ng serve`](cli/serve) (build and serve locally) CLI commands, the type of compilation (JIT or AOT) depends on the value of the `aot` property in your build configuration specified in `angular.json`. By default, `aot` is set to `true` for new CLI apps.
+When you run the [`ng build`](cli/build) (build only) or [`ng serve`](cli/serve) (build and serve locally) CLI commands, the type of compilation (JIT or AOT) depends on the value of the `aot` property in your build configuration specified in `angular.json`. By default, `aot` is set to `true` for new CLI applications.
 
 See the [CLI command reference](cli) and [Building and serving Angular apps](guide/build) for more information.
 
@@ -62,7 +62,7 @@ In the following example, the `@Component()` metadata object and the class const
 @Component({
   selector: 'app-typical',
   template: '<div>A typical component for {{data.name}}</div>'
-)}
+})
 export class TypicalComponent {
   @Input() data: TypicalData;
   constructor(private someService: SomeService) { ... }
@@ -623,7 +623,7 @@ For more information about input type narrowing, see [Input setter coercion](gui
 
 ### Non-null type assertion operator
 
-Use the [non-null type assertion operator](guide/template-syntax#non-null-assertion-operator) to suppress the `Object is possibly 'undefined'` error when it is inconvenient to use `*ngIf` or when some constraint in the component ensures that the expression is always non-null when the binding expression is interpolated.
+Use the [non-null type assertion operator](guide/template-expression-operators#non-null-assertion-operator) to suppress the `Object is possibly 'undefined'` error when it is inconvenient to use `*ngIf` or when some constraint in the component ensures that the expression is always non-null when the binding expression is interpolated.
 
 In the following example, the `person` and `address` properties are always set together, implying that `address` is always non-null if `person` is non-null.
 There is no convenient way to describe this constraint to TypeScript and the template compiler, but the error is suppressed in the example by using `address!.street`.

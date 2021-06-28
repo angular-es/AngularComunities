@@ -1,6 +1,6 @@
 # NgZone
 
-A zone is an execution context that persists across async tasks. You can think of it as [thread-local storage](http://en.wikipedia.org/wiki/Thread-local_storage) for JavaScript VMs.
+A zone is an execution context that persists across async tasks. You can think of it as [thread-local storage](https://en.wikipedia.org/wiki/Thread-local_storage) for JavaScript VMs.
 This guide describes how to use Angular's NgZone to automatically detect changes in the component to update HTML.
 
 ## Fundamentals of change detection
@@ -9,7 +9,7 @@ To understand the benefits of `NgZone`, it is important to have a clear grasp of
 
 ### Displaying and updating data in Angular
 
-In Angular, you can [display data](guide/displaying-data) by binding controls in an HTML template to the properties of an Angular component.
+In Angular, you can display data by binding controls in an HTML template to the properties of an Angular component.
 
 <code-example path="displaying-data/src/app/app.component.1.ts" header="src/app/app.component.ts"></code-example>
 
@@ -102,9 +102,9 @@ In Angular, this step is unnecessary. Whenever you update the data, your HTML is
 
 To understand how change detection works, first consider when the application needs to update the HTML. Typically, updates occur for one of the following reasons:
 
-1. Component initialization. For example, when bootstrapping an Angular application, Angular loads the bootstrap component and triggers the [ApplicationRef.tick()](api/core/ApplicationRef#tick) to call change detection and View Rendering. Just as in the [displaying data](guide/displaying-data) sample, the `AppComponent` is the bootstrap component. This component has the properties `title` and `myHero`, which the application renders in the HTML.
+1. Component initialization. For example, when bootstrapping an Angular application, Angular loads the bootstrap component and triggers the [ApplicationRef.tick()](api/core/ApplicationRef#tick) to call change detection and View Rendering.
 
-2. Event listener. The DOM event listener can update the data in an Angular component and also trigger change detection, as in the following example.
+1. Event listener. The DOM event listener can update the data in an Angular component and also trigger change detection, as in the following example.
 
 <code-example path="user-input/src/app/click-me.component.ts" region="click-me-component" header="src/app/click-me.component.ts"></code-example>
 
@@ -303,7 +303,7 @@ For the full list, see the [Zone Module document](https://github.com/angular/ang
 Therefore in those asynchronous APIs, you don't need to trigger change detection manually.
 
 There are still some third party APIs that Zone does not handle.
-In those cases, the `NgZone` service provides a [`run()`](api/core/NgZone#run) method that allows you to execute a function inside the angular zone.
+In those cases, the `NgZone` service provides a [`run()`](api/core/NgZone#run) method that allows you to execute a function inside the Angular zone.
 This function, and all asynchronous operations in that function, trigger change detection automatically at the correct time.
 
 ```typescript
@@ -311,7 +311,7 @@ export class AppComponent implements OnInit {
   constructor(private ngZone: NgZone) {}
   ngOnInit() {
     // New async API is not handled by Zone, so you need to
-    // use ngZone.run() to make the asynchronous operation in the angular zone
+    // use ngZone.run() to make the asynchronous operation in the Angular zone
     // and trigger change detection automatically.
     this.ngZone.run(() => {
       someNewAsyncAPI(() => {
@@ -322,7 +322,7 @@ export class AppComponent implements OnInit {
 }
 ```
 
-By default, all asynchronous operations are inside the angular zone, which triggers change detection automatically.
+By default, all asynchronous operations are inside the Angular zone, which triggers change detection automatically.
 Another common case is when you don't want to trigger change detection.
 In that situation, you can use another `NgZone` method: [`runOutsideAngular()`](api/core/NgZone#runoutsideangular).
 
@@ -352,7 +352,7 @@ If you are using the Angular CLI, this step is done automatically, and you will 
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js/dist/zone';  // Included with Angular CLI.
+import 'zone.js';  // Included with Angular CLI.
 ```
 
 Before importing the  `zone.js` package, you can set the following configurations:
@@ -360,7 +360,7 @@ Before importing the  `zone.js` package, you can set the following configuration
 - You can disable some asynchronous API monkey patching for better performance.
 For example, you can disable the `requestAnimationFrame()` monkey patch, so the callback of `requestAnimationFrame()` will not trigger change detection.
 This is useful if, in your application, the callback of the `requestAnimationFrame()` will not update any data.
-- You can specify that certain DOM events do not run inside the angular zone; for example, to prevent a `mousemove` or `scroll` event to trigger change detection.
+- You can specify that certain DOM events do not run inside the Angular zone; for example, to prevent a `mousemove` or `scroll` event to trigger change detection.
 
 There are several other settings you can change.
 To make these changes, you need to create a `zone-flags.ts` file, such as the following.
@@ -380,7 +380,7 @@ Next, import `zone-flags` before you import `zone.js` in the `polyfills.ts`:
  * Zone JS is required by default for Angular.
  */
 import `./zone-flags`;
-import 'zone.js/dist/zone';  // Included with Angular CLI.
+import 'zone.js';  // Included with Angular CLI.
 ```
 
 For more information about what you can configure, see the [Zone.js](https://github.com/angular/angular/tree/master/packages/zone.js) documentation.
@@ -406,7 +406,7 @@ To remove Zone.js, make the following changes.
   /***************************************************************************************************
    * Zone JS is required by default for Angular itself.
    */
-  // import 'zone.js/dist/zone';  // Included with Angular CLI.
+  // import 'zone.js';  // Included with Angular CLI.
   ```
 
 2. Bootstrap Angular with the `noop` zone in `src/main.ts`:

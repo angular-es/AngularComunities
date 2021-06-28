@@ -1,21 +1,22 @@
 {
-  "name": "angular-es",
-  "version": "0.0.2",
+  "name": "angular-x",
+  "version": "0.0.1",
   "main": "index.js",
-  "description": "A package to share with spanish spoken official docs and make comunity around Angular",
-  "repository": "https://github.com/ng-es/angular-es",
-
+  "repository": "https://github.com/angular/angular-x",
   "author": "Suguru Inatomi <suguru.inatomi@gmail.com>",
-  "contributors" :[
-    "Antonio Cárdenas <antonioalx66@gmail.com>"
-  ],
   "license": "MIT",
   "private": true,
   "scripts": {
-    "test": "npm run textlint",
+    "prebuild": "rm -rf build-out && mkdir build-out",
+    "build": "docker-compose run --rm build-aio",
+    "build:docker": "docker-compose build --parallel",
+    "lint": "yarn ~~textlint",
+    "lint:fix": "yarn ~~textlint --fix",
+    "start": "docker-compose up --remove-orphans watch-aio",
+    "test": "npm run lint && yarn test:patch",
+    "test:patch": "git apply --check --directory origin ./scripts/git-patch/*.patch",
     "update-origin": "./update-origin.sh",
-    "textlint": "textlint 'aio-x/**/!(*.en).md'",
-    "textlint:f": "textlint --fix 'aio-x/**/!(*.en).md'"
+    "~~textlint": "textlint 'aio-x/**/!(*.en).md'"
   },
   "devDependencies": {
     "glob": "^7.1.2",

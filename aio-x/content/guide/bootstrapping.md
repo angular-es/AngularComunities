@@ -12,14 +12,12 @@ Every application has at least one Angular module, the _root_ module,
 which must be present for bootstrapping the application on launch.
 By convention and by default, this NgModule is named `AppModule`.
 
-When you use the [Angular CLI](cli) command `ng new` to generate an app, the default `AppModule` is as follows.
+When you use the [Angular CLI](cli) command `ng new` to generate an app, the default `AppModule` looks like the following:
 
 ```typescript
 /* JavaScript imports */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -29,9 +27,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -90,8 +86,6 @@ A declarable can only belong to one module, so only declare it in
 one `@NgModule`. When you need it elsewhere,
 import the module that has the declarable you need in it.
 
-**Only `@NgModule` references** go in the `imports` array.
-
 
 ### Using directives with `@NgModule`
 
@@ -120,10 +114,7 @@ And in the same file, add it to the `@NgModule` `declarations` array:
 
 Now you could use your `ItemDirective` in a component. This example uses `AppModule`, but you'd do it the same way for a feature module. For more about directives, see [Attribute Directives](guide/attribute-directives) and [Structural Directives](guide/structural-directives). You'd also use the same technique for [pipes](guide/pipes) and components.
 
-Remember, components, directives, and pipes belong to one module only. You only need to declare them once in your app because you share them by importing the necessary modules. This saves you time and helps keep your app lean.
-
-
-
+Remember, components, directives, and pipes belong to one module only. You only need to declare them once in your application because you share them by importing the necessary modules. This saves you time and helps keep your application lean.
 
 {@a imports}
 
@@ -132,19 +123,27 @@ Remember, components, directives, and pipes belong to one module only. You only 
 The module's `imports` array appears exclusively in the `@NgModule` metadata object.
 It tells Angular about other NgModules that this particular module needs to function properly.
 
+<code-example
+    path="bootstrapping/src/app/app.module.ts"
+    region="imports"
+    header="src/app/app.module.ts (excerpt)">
+</code-example>
+
 This list of modules are those that export components, directives, or pipes
-that the component templates in this module reference. In this case, the component is
+that component templates in this module reference. In this case, the component is
 `AppComponent`, which references components, directives, or pipes in `BrowserModule`,
 `FormsModule`, or  `HttpClientModule`.
 A component template can reference another component, directive,
 or pipe when the referenced class is declared in this module or
 the class was imported from another module.
 
+
+
 {@a bootstrap-array}
 
 ## The `providers` array
 
-The providers array is where you list the services the app needs. When
+The providers array is where you list the services the application needs. When
 you list services here, they are available app-wide. You can scope
 them when using feature modules and lazy loading. For more information, see
 [Providers](guide/providers).
@@ -170,5 +169,5 @@ root module's `bootstrap` array.
 
 ## More about Angular Modules
 
-For more on NgModules you're likely to see frequently in apps,
+For more on NgModules you're likely to see frequently in applications,
 see [Frequently Used Modules](guide/frequent-ngmodules).

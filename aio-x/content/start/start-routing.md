@@ -18,8 +18,8 @@ The application already uses the Angular `Router` to navigate to the `ProductLis
 This section shows you how to define a route to show individual product details.
 
 1. Generate a new component for product details.
-   In the file list, right-click the `app` folder, choose `Angular Generator` and `Component`.
-   Name the component `product-details`.
+    In the file list, right-click the `app` folder, choose `Angular Generator` and `Component`.
+    Name the component `product-details`.
 
 1. In `app.module.ts`, add a route for product details, with a `path` of `products/:productId` and `ProductDetailsComponent` for the `component`.
 
@@ -28,28 +28,25 @@ This section shows you how to define a route to show individual product details.
 
 1. Open `product-list.component.html`.
 
-1. Update the `*ngFor` directive to read as follows.
-   This statement instructs Angular to iterate over the items in the `products` array and assigns each index in the array to the `productId` variable when iterating over the list.
-
 1. Modify the product name anchor to include a `routerLink` with the `product.id` as a parameter.
 
     <code-example header="src/app/product-list/product-list.component.html" path="getting-started/src/app/product-list/product-list.component.html" region="router-link">
     </code-example>
 
-   The `RouterLink` directive helps you customize the anchor element.
-   In this case, the route, or URL, contains one fixed segment, `/products`.
-   The final segment is variable, inserting the `id` property of the current product.
-   For example, the URL for a product with an `id` of 1 would be similar to `https://getting-started-myfork.stackblitz.io/products/1`.
+    The `RouterLink` directive helps you customize the anchor element.
+    In this case, the route, or URL, contains one fixed segment, `/products`.
+    The final segment is variable, inserting the `id` property of the current product.
+    For example, the URL for a product with an `id` of 1 would be similar to `https://getting-started-myfork.stackblitz.io/products/1`.
 
-1. Verify that the router works as intended by clicking the product name.
-   The application should display the `ProductDetailsComponent`, which currently says "product-details works!"
+ 1. Verify that the router works as intended by clicking the product name.
+    The application should display the `ProductDetailsComponent`, which currently says "product-details works!"
 
-   Notice that the URL in the preview window changes.
-   The final segment is `products/#`  where `#` is the number of the route you clicked.
+    Notice that the URL in the preview window changes.
+    The final segment is `products/#`  where `#` is the number of the route you clicked.
 
-   <div class="lightbox">
-     <img src="generated/images/guide/start/product-details-works.png" alt="Product details view with updated URL">
-   </div>
+    <div class="lightbox">
+      <img src="generated/images/guide/start/product-details-works.png" alt="Product details view with updated URL">
+    </div>
 
 ## View product details
 
@@ -73,28 +70,31 @@ In this section, you'll use the Angular Router to combine the `products` data an
     <code-example header="src/app/product-details/product-details.component.ts" path="getting-started/src/app/product-details/product-details.component.1.ts" region="props-methods">
     </code-example>
 
-   `ActivatedRoute` is specific to each component that the Angular Router loads.
-   `ActivatedRoute` contains information about the route and the route's parameters.
+    `ActivatedRoute` is specific to each component that the Angular Router loads.
+    `ActivatedRoute` contains information about the route and the route's parameters.
 
-   By injecting `ActivatedRoute`, you are configuring the component to use a service.
-   The [Managing Data](start/start-data "Try it: Managing Data") step covers services in more detail.
+    By injecting `ActivatedRoute`, you are configuring the component to use a service.
+    The [Managing Data](start/start-data "Try it: Managing Data") step covers services in more detail.
 
-1. In the `ngOnInit()` method, subscribe to route parameters and fetch the product based on the `productId`.
+1. In the `ngOnInit()` method, extract the `productId` from the route parameters and find the corresponding product in the `products` array.
 
     <code-example path="getting-started/src/app/product-details/product-details.component.1.ts" header="src/app/product-details/product-details.component.ts" region="get-product">
     </code-example>
 
-   The route parameters correspond to the path variables you define in the route. The URL that matches the route provides the `productId`. Angular uses the `productId` to display the details for each unique product.
+    The route parameters correspond to the path variables you define in the route.
+    To access the route parameters, we use `route.snapshot`, which is the `ActivatedRouteSnapshot` that contains information about the active route at that particular moment in time.
+    The URL that matches the route provides the `productId` .
+    Angular uses the `productId` to display the details for each unique product.
 
 1. Update the `ProductDetailsComponent` template to display product details with an `*ngIf`.
-   If a product exists, the `<div>` renders with a name, price, and description.
+    If a product exists, the `<div>` renders with a name, price, and description.
 
     <code-example header="src/app/product-details/product-details.component.html" path="getting-started/src/app/product-details/product-details.component.html" region="details">
     </code-example>
 
-   The line, `<h4>{{ product.price | currency }}</h4>`, uses the `currency` pipe to transform `product.price` from a number to a currency string.
-   A pipe is a way you can transform data in your HTML template.
-   For more information about Angular pipes, see [Pipes](guide/pipes "Pipes").
+    The line, `<h4>{{ product.price | currency }}</h4>`, uses the `currency` pipe to transform `product.price` from a number to a currency string.
+    A pipe is a way you can transform data in your HTML template.
+    For more information about Angular pipes, see [Pipes](guide/pipes "Pipes").
 
 When users click on a name in the product list, the router navigates them to the distinct URL for the product, shows the `ProductDetailsComponent`, and displays the product details.
 
@@ -103,8 +103,6 @@ When users click on a name in the product list, the router navigates them to the
 </div>
 
 For more information about the Angular Router, see [Routing & Navigation](guide/router "Routing & Navigation guide").
-
-<hr />
 
 ## What's next
 
