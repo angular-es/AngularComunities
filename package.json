@@ -2,8 +2,12 @@
   "name": "angular-x",
   "version": "0.0.1",
   "main": "index.js",
-  "repository": "https://github.com/angular/angular-x",
+  "description": "A template seed for communities who wants documentation in native language",
+  "repository": "https://github.com/angular-es/AngularCommunities",
   "author": "Suguru Inatomi <suguru.inatomi@gmail.com>",
+  "contributors" :[
+    "Antonio Cárdenas <antonioalx66@gmail.com>"
+  ],
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -13,8 +17,7 @@
     "lint": "yarn ~~textlint",
     "lint:fix": "yarn ~~textlint --fix",
     "start": "docker-compose up --remove-orphans watch-aio",
-    "test": "npm run lint && yarn test:patch",
-    "test:patch": "git apply --check --directory origin ./scripts/git-patch/*.patch",
+    "test": "npm run lint",
     "update-origin": "./update-origin.sh",
     "~~textlint": "textlint 'aio-x/**/!(*.en).md'"
   },

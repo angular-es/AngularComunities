@@ -2,15 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7fb8854-15e1-4326-bf61-17287264073c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/guide/angular-compiler-options.en.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/guide/angular-compiler-options.en.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/guide/creating-libraries.en.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/guide/creating-libraries.en.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/guide/creating-libraries.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/guide/creating-libraries.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/guide/workspace-config.en.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/guide/workspace-config.en.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aio-x/content/guide/workspace-config.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/guide/workspace-config.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/origin" beforeDir="false" afterPath="$PROJECT_DIR$/origin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/origin/.husky/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/origin/.husky/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/AIO_MODIFY_NOTE.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/AIO_MODIFY_NOTE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/NG0100.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/NG0100.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/NG0200.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/NG0200.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/NG0201.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/NG0201.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/NG0300.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/NG0300.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/NG0301.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/NG0301.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/NG0302.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/NG0302.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/NG1001.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/NG1001.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/NG2003.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/NG2003.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/NG8001.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/NG8001.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/NG8002.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/NG8002.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/NG8003.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/NG8003.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/errors/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/errors/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/examples/toh-pt6/src/app/hero-search/hero-search.component.en.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/content/examples/toh-pt6/src/app/hero-search/hero-search.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/content/examples/toh-pt6/src/app/hero-search/hero-search.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/tools/transforms/templates/error/error.template.html" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/tools/transforms/templates/error/error.template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aio-x/tools/transforms/templates/lib/githubLinks.html" beforeDir="false" afterPath="$PROJECT_DIR$/aio-x/tools/transforms/templates/lib/githubLinks.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quickstart.md" beforeDir="false" afterPath="$PROJECT_DIR$/quickstart.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/sync-origin.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/sync-origin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +70,7 @@
       <workItem from="1623156204690" duration="28000" />
       <workItem from="1623156447519" duration="727000" />
       <workItem from="1623157501459" duration="2534000" />
+      <workItem from="1624874838213" duration="203000" />
     </task>
     <task id="LOCAL-00001" summary="Documentation improvement">
       <created>1609179133461</created>

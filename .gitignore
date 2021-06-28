@@ -3,7 +3,8 @@ node_modules
 .netlify
 .firebase
 .firebaserc
-.idea/
+.idea/*
 .idea
 origin/*
 !origin/.gitkeep 
+.DS_Store/

@@ -22,7 +22,7 @@ const promiseGlob = promisify(glob);
 
 async function main() {
     const aioOriginDir = 'origin/aio';
-    const aioJaDir = 'aio-x';
+    const aioXDir = 'aio-x';
 
     const searchFiles = async () => {
         const globResults = await Promise.all(copyTargets.map(target => {
@@ -40,11 +40,11 @@ async function main() {
 
         let isTranslated = false;
         try {
-            fs.accessSync(path.resolve(aioJaDir, enFilePath));
+            fs.accessSync(path.resolve(aioXDir, enFilePath));
             isTranslated = true;
         } catch (err) { }
 
-        fs.writeFileSync(path.resolve(aioJaDir, isTranslated ? enFilePath : file), src, { encoding: 'utf8' });
+        fs.writeFileSync(path.resolve(aioXDir, isTranslated ? enFilePath : file), src, { encoding: 'utf8' });
     };
     files.forEach(copy);
 }

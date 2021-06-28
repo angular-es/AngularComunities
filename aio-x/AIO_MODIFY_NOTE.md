@@ -1,34 +1,9 @@
-## Modify AIO
+## AIO改変ノート
 
-### `translated property` of` navigation.json`
+### favicon.ico差し替え
 
+- aio-ja/src/favicon.ico
 
--aio-x/src/app/layout /nav-item/nav-item.component.html
--aio-en/src/app/navigation/navigation.model.ts
+## エラーガイドのテンプレートの翻訳
 
-### Replace Google Analytics ID
-
-
--aio/src/environment/environment.archive.ts
--aio/src/assets/environment.next.ts
--aio/src/ assets/environment.stable.ts
--aio/src/environment/environment.ts
-
-### Replace favicon.ico
-
--aio-x/src/favicon.ico
-
-### aio-en/src/index.html
-
--Verification for Google Search Console
--lang=specification "is"
-
-## Change the title to Angular X //Your lang
-
--layout/doc-viewer
--index.html
--pwa-manifest.json
-
-## Redirect to angular.es
-
--index.html
+- tools/transforms/templates/error/error.template.html
